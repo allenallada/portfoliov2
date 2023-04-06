@@ -1,6 +1,5 @@
 import { Box, Typography, Divider } from '@mui/material';
 import * as React from 'react';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const experience = [
     {

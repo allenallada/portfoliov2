@@ -1,6 +1,5 @@
-import { Box, IconButton, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import * as React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
 
 function TopSection() {
     return (
