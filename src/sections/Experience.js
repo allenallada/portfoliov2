@@ -49,7 +49,7 @@ function Experience() {
                 display="flex"
                 justifyContent="center">
                 <Typography
-                    variant="h1"
+                    variant="h2"
                     marginTop="1em"
                     color="success.main"
                     fontWeight="800">

@@ -62,7 +62,7 @@ function TopSection() {
                                 Skilled using <strong>PHP</strong>,
                                 <strong>Laravel</strong> and
                                 <nobr>front-end</nobr> libraries such as
-                                <strong>React, Vue.js</strong> and more.
+                                <strong> React, Vue.js</strong> and more.
                             </Typography>
                             <Typography
                                 variant="body2"

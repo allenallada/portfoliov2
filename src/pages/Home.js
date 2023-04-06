@@ -1,7 +1,8 @@
 import * as React from 'react';
-import TopSection from '../components/TopSection';
-import Experience from '../components/Experience';
-import TopNav from '../components/TopNav';
+import TopSection from '../sections/TopSection';
+import Experience from '../sections/Experience';
+import TopNav from '../sections/TopNav';
+import Projects from '../sections/Projects';
 
 function Home() {
     return (
@@ -9,6 +10,7 @@ function Home() {
             <TopNav />
             <TopSection />
             <Experience />
+            <Projects />
         </>
     );
 }
