@@ -81,12 +81,8 @@ function Experience() {
                             <Box
                                 width="30em"
                                 sx={{
-                                    // ...style,
                                     marginY: '3em',
                                     marginLeft: `${(index + 1) * 12}em`,
-                                    // marginLeft: `${
-                                    //     index * (60 / experience.length)
-                                    // }%`,
                                 }}>
                                 <Typography
                                     color="success.main"
