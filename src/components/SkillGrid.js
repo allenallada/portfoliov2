@@ -16,31 +16,31 @@ function SkillGrid({ title, items }) {
         <>
             <Box
                 display="flex"
-                justifyContent="center"
-                marginBottom="1em">
+                justifyContent="center">
                 <Typography
                     variant="h2"
+                    marginBottom="1em"
                     fontWeight="800">
                     {title}
                 </Typography>
             </Box>
             <Grid
                 container
-                spacing={2}
-                rowSpacing={8}
+                rowSpacing={2}
                 justifyContent="center"
-                marginX="5em"
-                marginBottom="1em">
+                marginBottom="3em">
                 {items.map((item) => (
                     <Grid
-                        xs={6}
-                        sm={4}
-                        lg={3}
-                        paddingX="4.5em">
-                        <Container>
+                        xs={4}
+                        sm={3}
+                        lg={2}>
+                        <Container
+                            sx={{
+                                width: '90%',
+                            }}>
                             <CircularProgressbarWithChildren
                                 value={item.value * 10}
-                                strokeWidth={13}
+                                strokeWidth={8}
                                 styles={buildStyles({
                                     textSize: '0.4em',
                                     pathColor: '#10B981',
@@ -48,13 +48,34 @@ function SkillGrid({ title, items }) {
                                 })}>
                                 <Box
                                     component="img"
-                                    sx={{
-                                        height: '30%',
-                                    }}
+                                    sx={(theme) => ({
+                                        height: '2em',
+                                        [theme.breakpoints.down('lg')]: {
+                                            height: '6em',
+                                        },
+                                        [theme.breakpoints.down('md')]: {
+                                            height: '4em',
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            height: '6em',
+                                        },
+                                    })}
                                     alt={item.text}
                                     src={item.icon}
                                 />
-                                <strong>{item.text}</strong>
+                                <Typography
+                                    sx={(theme) => ({
+                                        fontSize: '0.8em',
+                                        fontWeight: '600',
+                                        [theme.breakpoints.down('lg')]: {
+                                            fontSize: '1.5em',
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize: '2em',
+                                        },
+                                    })}>
+                                    {item.text}
+                                </Typography>
                             </CircularProgressbarWithChildren>
                         </Container>
                     </Grid>
