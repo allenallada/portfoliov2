@@ -63,13 +63,22 @@ function Skills() {
     return (
         <Box
             color="success.main"
-            sx={{
+            sx={(theme) => ({
                 fontSize: '1vw',
                 padding: '3em',
                 height: {
                     md: '100vh',
                 },
-            }}>
+                display: 'flex',
+                position: 'relative',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                width: '100%',
+                [theme.breakpoints.up('lg')]: {
+                    height: '100vh',
+                    scrollSnapAlign: 'center',
+                },
+            })}>
             <SkillGrid
                 title="Core Technologies"
                 items={skills}

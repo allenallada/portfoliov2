@@ -16,10 +16,10 @@ function SkillGrid({ title, items }) {
         <>
             <Box
                 display="flex"
-                justifyContent="center">
+                justifyContent="center"
+                marginBottom="1em">
                 <Typography
                     variant="h2"
-                    marginY="1em"
                     fontWeight="800">
                     {title}
                 </Typography>
@@ -29,7 +29,8 @@ function SkillGrid({ title, items }) {
                 spacing={2}
                 rowSpacing={8}
                 justifyContent="center"
-                marginX="5em">
+                marginX="5em"
+                marginBottom="1em">
                 {items.map((item) => (
                     <Grid
                         xs={6}

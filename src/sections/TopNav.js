@@ -15,6 +15,8 @@ function TopNav() {
                 background: 'transparent',
                 width: '100%',
                 fontSize: '1vw',
+                scrollSnapAlign: 'center',
+                zIndex: '100',
             }}>
             <Stack
                 alignItems="center"

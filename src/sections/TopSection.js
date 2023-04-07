@@ -4,16 +4,23 @@ import * as React from 'react';
 function TopSection() {
     return (
         <Box
-            sx={{
-                background: (theme) => {
-                    console.log(theme.palette);
-                    return `linear-gradient(90deg, ${theme.palette.indigo.darkest} 67%, ${theme.palette.success.light} 33%)`;
+            sx={(theme) => ({
+                position: 'relative',
+                width: '100%',
+                maxHeight: '100em',
+                [theme.breakpoints.up('lg')]: {
+                    height: '100vh',
+                    scrollSnapAlign: 'center',
                 },
-            }}>
+            })}>
             <Box
                 sx={{
                     fontSize: '1vw',
                     paddingBottom: '5em',
+                    background: (theme) => {
+                        console.log(theme.palette);
+                        return `linear-gradient(90deg, ${theme.palette.indigo.darkest} 67%, ${theme.palette.success.light} 33%)`;
+                    },
                 }}>
                 <Box
                     sx={{

@@ -81,17 +81,24 @@ const projects = [
 function Projects() {
     return (
         <Box
-            sx={{
+            sx={(theme) => ({
                 fontSize: '1vw',
                 padding: '3em',
                 backgroundColor: 'indigo.dark',
-            }}>
+                position: 'relative',
+                width: '100%',
+                overflow: 'hidden',
+                maxHeight: '100em',
+                [theme.breakpoints.up('lg')]: {
+                    height: '100vh',
+                    scrollSnapAlign: 'center',
+                },
+            })}>
             <Box
                 display="flex"
                 justifyContent="center">
                 <Typography
                     variant="h2"
-                    marginTop="1em"
                     color="common.white"
                     fontWeight="800">
                     Projects
@@ -100,7 +107,7 @@ function Projects() {
             <Grid
                 container
                 spacing={10}
-                padding="5em">
+                rowSpacing={1}>
                 {projects.map((project) => {
                     return (
                         <Grid
@@ -113,9 +120,9 @@ function Projects() {
                                     sx={{
                                         marginX: 'auto',
                                         width: {
-                                            lg: '90%',
+                                            lg: '70%',
                                             md: '60%',
-                                            xs: '80%',
+                                            xs: '60%',
                                         },
                                         cursor: 'pointer',
                                     }}
@@ -125,15 +132,16 @@ function Projects() {
                                     <CardHeader
                                         sx={{
                                             textAlign: 'center',
-                                            padding: '0.5em',
+                                            padding: '0',
                                             color: 'indigo.dark',
+                                            margin: '1em',
                                         }}
-                                        component="h2"
+                                        component="h4"
                                         title={project.name}
                                     />
                                     <CardMedia
                                         component="img"
-                                        height="200em"
+                                        height="150em"
                                         image={project.image}
                                         alt={project.name}
                                         sx={{
@@ -152,6 +160,9 @@ function Projects() {
                                         {project.role.map((role) => {
                                             return (
                                                 <Chip
+                                                    sx={{
+                                                        fontSize: '0.6em',
+                                                    }}
                                                     label={role.text}
                                                     color={role.color}
                                                 />

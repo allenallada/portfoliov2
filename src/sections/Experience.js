@@ -41,67 +41,83 @@ const experience = [
 function Experience() {
     return (
         <Box
-            sx={{
+            sx={(theme) => ({
                 fontSize: '1vw',
                 padding: '3em',
-            }}>
-            <Box
-                display="flex"
-                justifyContent="center">
-                <Typography
-                    variant="h2"
-                    marginTop="1em"
-                    color="success.main"
-                    fontWeight="800">
-                    Work Experience
-                </Typography>
-            </Box>
-            <Box
-                sx={{
-                    margin: '3em',
-                    paddingX: '5em',
-                }}>
-                {experience.map((item, index) => {
-                    return (
-                        <>
-                            <Box
-                                width="30em"
-                                sx={{
-                                    marginY: '3em',
-                                    marginLeft: `${(index + 1) * 12}em`,
-                                }}>
-                                <Typography
-                                    color="success.main"
-                                    variant="body1">
-                                    {item.date}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="body1">
-                                    {item.company}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="h5">
-                                    {item.position}
-                                </Typography>
-                                <br />
-                                {item.roles.map((role) => (
+                position: 'relative',
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                maxHeight: '100em',
+                [theme.breakpoints.up('lg')]: {
+                    height: '100vh',
+                    scrollSnapAlign: 'center',
+                },
+            })}>
+            <Box component="div">
+                <Box
+                    display="flex"
+                    justifyContent="center">
+                    <Typography
+                        variant="h2"
+                        color="success.main"
+                        fontWeight="800">
+                        Work Experience
+                    </Typography>
+                </Box>
+                <Box
+                    sx={{
+                        margin: '3em',
+                        marginBottom: '0',
+                        paddingX: '5em',
+                    }}>
+                    {experience.map((item, index) => {
+                        return (
+                            <>
+                                <Box
+                                    width="30em"
+                                    sx={{
+                                        marginY: '1em',
+                                        marginLeft: `${(index + 1) * 12}em`,
+                                    }}>
                                     <Typography
-                                        letterSpacing="0.07em"
-                                        color="success.dark"
-                                        variant="body2">
-                                        &#x2022; {role}
+                                        color="success.main"
+                                        variant="caption">
+                                        {item.date}
                                     </Typography>
-                                ))}
-                                <br />
-                                <Divider
-                                    sx={{ borderColor: 'success.light' }}
-                                />
-                            </Box>
-                        </>
-                    );
-                })}
+                                    <Typography
+                                        color="success.main"
+                                        variant="subtitle2">
+                                        {item.company}
+                                    </Typography>
+                                    <Typography
+                                        color="success.main"
+                                        variant="h5">
+                                        {item.position}
+                                    </Typography>
+                                    {item.roles.map((role) => (
+                                        <Typography
+                                            paddingLeft="1em"
+                                            letterSpacing="0.07em"
+                                            color="success.dark"
+                                            variant="body2">
+                                            &#x2022; {role}
+                                        </Typography>
+                                    ))}
+                                    <br />
+                                    {index !== experience.length - 1 && (
+                                        <Divider
+                                            sx={{
+                                                borderColor: 'success.light',
+                                            }}
+                                        />
+                                    )}
+                                </Box>
+                            </>
+                        );
+                    })}
+                </Box>
             </Box>
         </Box>
     );
