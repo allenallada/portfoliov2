@@ -3,6 +3,7 @@ import TopSection from '../sections/TopSection';
 import Experience from '../sections/Experience';
 import TopNav from '../sections/TopNav';
 import Projects from '../sections/Projects';
+import Skills from '../sections/Skills';
 
 function Home() {
     return (
@@ -11,6 +12,7 @@ function Home() {
             <TopSection />
             <Experience />
             <Projects />
+            <Skills />
         </>
     );
 }

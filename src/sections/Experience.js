@@ -61,21 +61,7 @@ function Experience() {
                     margin: '3em',
                     paddingX: '5em',
                 }}>
-                {/* <Box
-                    sx={{
-                        position: 'absolute',
-                        width: '0.1em',
-                        background: (theme) => theme.palette.success.main,
-                        left: '18%',
-                        height: '50em',
-                        marginLeft: '-1px',
-                    }}
-                /> */}
                 {experience.map((item, index) => {
-                    // const style =
-                    //     index % 2 === 0
-                    //         ? { marginRight: 'auto' }
-                    //         : { marginLeft: 'auto' };
                     return (
                         <>
                             <Box
