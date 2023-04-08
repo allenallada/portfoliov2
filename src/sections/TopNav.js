@@ -31,8 +31,8 @@ function TopNav() {
                         width: '5em',
                         height: '5em',
                         [theme.breakpoints.down('md')]: {
-                            width: '3.5em',
-                            height: '3.5em',
+                            width: '3em',
+                            height: '3em',
                         },
                     })}
                     alt="My Logo"

@@ -36,7 +36,8 @@ function TopSection() {
                             width: '40%',
                             marginLeft: 'auto',
                             [theme.breakpoints.down('md')]: {
-                                width: '80%',
+                                width: 'auto',
+                                marginX: '5.3em',
                             },
                         })}>
                         <Box>
