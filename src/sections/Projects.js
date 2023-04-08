@@ -17,7 +17,7 @@ const projects = [
         desc: 'An app used to migrate products from the Base Japan store, uploads the file exported from Base Japan, reads and uploads the file to Cafe24',
         tags: [
             {
-                text: 'JS',
+                text: 'Javascript',
                 color: 'warning',
                 fill: true,
             },
@@ -57,7 +57,7 @@ const projects = [
         desc: 'An app that analyzes the purchases for a Product based on options and shows in a graphical way',
         tags: [
             {
-                text: 'JS',
+                text: 'Javascript',
                 color: 'warning',
                 fill: true,
             },
@@ -92,7 +92,7 @@ const projects = [
         desc: 'An app used to migrate products from the Makeshop store, uploads the file exported from Makeshop, reads and uploads the file to Cafe24',
         tags: [
             {
-                text: 'JS',
+                text: 'Javascript',
                 color: 'warning',
                 fill: true,
             },
@@ -132,7 +132,7 @@ const projects = [
         desc: 'App that monitors the attendance, computes leaves and other employee tools. Internal so no further information could be given',
         tags: [
             {
-                text: 'JS',
+                text: 'Javascript',
                 color: 'warning',
                 fill: true,
             },
@@ -219,6 +219,7 @@ function Projects() {
                                     sx={{
                                         marginX: 'auto',
                                         cursor: 'pointer',
+                                        width: '100%',
                                     }}
                                     onClick={(event) =>
                                         window.open(project.image)
@@ -241,7 +242,7 @@ function Projects() {
                                     <CardContent
                                         sx={{
                                             padding: '1em',
-                                            color: 'indigo.darkest',
+                                            color: 'indigo.dark',
                                         }}>
                                         <Typography variant="h6">
                                             {project.name}
