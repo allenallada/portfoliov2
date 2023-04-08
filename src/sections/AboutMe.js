@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Typography, Container } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const paragraphs = [
     "I'm Allen Allada, a full stack web developer based in the Philippines, and I am delighted to welcome you to my portfolio.",
