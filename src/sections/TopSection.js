@@ -106,7 +106,7 @@ function TopSection() {
                                     })}>
                                     Skilled using <strong>PHP</strong>,
                                     <strong>Laravel</strong> and
-                                    <nobr>front-end</nobr> libraries such as
+                                    <nobr> front-end</nobr> libraries such as
                                     <strong> React, Vue.js</strong> and more.
                                 </Typography>
                                 <Typography

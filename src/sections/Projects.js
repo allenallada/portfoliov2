@@ -99,7 +99,8 @@ function Projects() {
                     variant="h2"
                     color="common.white"
                     fontWeight="800"
-                    textAlign="center">
+                    textAlign="center"
+                    marginBottom="1em">
                     Projects
                 </Typography>
             </Box>
