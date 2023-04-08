@@ -176,9 +176,7 @@ function Projects() {
                 backgroundColor: 'indigo.dark',
                 position: 'relative',
                 width: '100%',
-                overflow: 'hidden',
                 height: 'auto',
-                overflow: 'visible',
                 [theme.breakpoints.up('lg')]: {
                     height: '100vh',
                     scrollSnapAlign: 'center',
