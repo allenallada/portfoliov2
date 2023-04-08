@@ -42,7 +42,6 @@ function Experience() {
     return (
         <Box
             sx={(theme) => ({
-                fontSize: '1vw',
                 padding: '3em',
                 position: 'relative',
                 width: '100%',
@@ -62,59 +61,68 @@ function Experience() {
                     <Typography
                         variant="h2"
                         color="success.main"
-                        fontWeight="800">
+                        fontWeight="800"
+                        textAlign="center">
                         Work Experience
                     </Typography>
                 </Box>
                 <Box
-                    sx={{
+                    sx={(theme) => ({
                         margin: '3em',
                         marginBottom: '0',
                         paddingX: '5em',
-                    }}>
+                        [theme.breakpoints.down('md')]: {
+                            paddingX: '0',
+                            margin: '0',
+                        },
+                    })}>
                     {experience.map((item, index) => {
                         return (
-                            <>
-                                <Box
-                                    width="30em"
-                                    sx={{
-                                        marginY: '1em',
-                                        marginLeft: `${(index + 1) * 12}em`,
-                                    }}>
+                            <Box
+                                key={`${item.position} ${item.company}`}
+                                width="30em"
+                                sx={(theme) => ({
+                                    marginY: '1em',
+                                    marginLeft: `${(index + 1) * 12}em`,
+                                    [theme.breakpoints.down('md')]: {
+                                        marginX: '3em',
+                                        width: 'auto',
+                                    },
+                                })}>
+                                <Typography
+                                    color="success.main"
+                                    variant="caption">
+                                    {item.date}
+                                </Typography>
+                                <Typography
+                                    color="success.main"
+                                    variant="subtitle2">
+                                    {item.company}
+                                </Typography>
+                                <Typography
+                                    color="success.main"
+                                    variant="h5">
+                                    {item.position}
+                                </Typography>
+                                {item.roles.map((role) => (
                                     <Typography
-                                        color="success.main"
-                                        variant="caption">
-                                        {item.date}
+                                        key={`${item.position} ${role}`}
+                                        paddingLeft="1em"
+                                        letterSpacing="0.07em"
+                                        color="success.dark"
+                                        variant="body2">
+                                        &#x2022; {role}
                                     </Typography>
-                                    <Typography
-                                        color="success.main"
-                                        variant="subtitle2">
-                                        {item.company}
-                                    </Typography>
-                                    <Typography
-                                        color="success.main"
-                                        variant="h5">
-                                        {item.position}
-                                    </Typography>
-                                    {item.roles.map((role) => (
-                                        <Typography
-                                            paddingLeft="1em"
-                                            letterSpacing="0.07em"
-                                            color="success.dark"
-                                            variant="body2">
-                                            &#x2022; {role}
-                                        </Typography>
-                                    ))}
-                                    <br />
-                                    {index !== experience.length - 1 && (
-                                        <Divider
-                                            sx={{
-                                                borderColor: 'success.light',
-                                            }}
-                                        />
-                                    )}
-                                </Box>
-                            </>
+                                ))}
+                                <br />
+                                {index !== experience.length - 1 && (
+                                    <Divider
+                                        sx={{
+                                            borderColor: 'success.light',
+                                        }}
+                                    />
+                                )}
+                            </Box>
                         );
                     })}
                 </Box>

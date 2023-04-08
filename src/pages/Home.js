@@ -17,8 +17,12 @@ function Home() {
                 scrollSnapType: 'y mandatory',
                 height: '100vh',
                 width: '100%',
+                fontSize: '1vw',
                 [theme.breakpoints.up('lg')]: {
                     scrollSnapType: 'y mandatory',
+                },
+                [theme.breakpoints.down('md')]: {
+                    fontSize: '0.8em',
                 },
             })}>
             <TopNav />

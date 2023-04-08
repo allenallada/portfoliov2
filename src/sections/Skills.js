@@ -64,11 +64,7 @@ function Skills() {
         <Box
             color="success.main"
             sx={(theme) => ({
-                fontSize: '1vw',
                 padding: '3em',
-                height: {
-                    md: '100vh',
-                },
                 display: 'flex',
                 position: 'relative',
                 flexDirection: 'column',

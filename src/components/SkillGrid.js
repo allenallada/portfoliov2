@@ -20,6 +20,7 @@ function SkillGrid({ title, items }) {
                 <Typography
                     variant="h2"
                     marginBottom="1em"
+                    textAlign="center"
                     fontWeight="800">
                     {title}
                 </Typography>
@@ -27,12 +28,15 @@ function SkillGrid({ title, items }) {
             <Grid
                 container
                 rowSpacing={2}
+                fontSize="1vw"
                 justifyContent="center"
                 marginBottom="3em">
                 {items.map((item) => (
                     <Grid
-                        xs={4}
-                        sm={3}
+                        key={item.text}
+                        xs={6}
+                        sm={4}
+                        md={3}
                         lg={2}>
                         <Container
                             sx={{

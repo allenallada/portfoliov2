@@ -1,7 +1,6 @@
 import {
     Box,
     Card,
-    CardHeader,
     Typography,
     CardContent,
     CardMedia,
@@ -82,7 +81,6 @@ function Projects() {
     return (
         <Box
             sx={(theme) => ({
-                fontSize: '1vw',
                 padding: '3em',
                 backgroundColor: 'indigo.dark',
                 position: 'relative',
@@ -100,53 +98,53 @@ function Projects() {
                 <Typography
                     variant="h2"
                     color="common.white"
-                    fontWeight="800">
+                    fontWeight="800"
+                    textAlign="center">
                     Projects
                 </Typography>
             </Box>
             <Grid
                 container
                 spacing={10}
-                rowSpacing={1}>
+                rowSpacing={2}
+                height="80%"
+                columns={25}
+                marginTop="1em"
+                justifyContent="center"
+                alignContent="center">
                 {projects.map((project) => {
                     return (
                         <Grid
-                            lg={6}
-                            xs={12}>
+                            key={project.name}
+                            xl={9}
+                            lg={10}
+                            md={9}
+                            sm={17}
+                            xs={20}>
                             <Box
                                 display="flex"
                                 justifyContent="center">
                                 <Card
                                     sx={{
                                         marginX: 'auto',
-                                        width: {
-                                            lg: '70%',
-                                            md: '60%',
-                                            xs: '60%',
-                                        },
                                         cursor: 'pointer',
                                     }}
                                     onClick={(event) =>
                                         window.open(project.image)
                                     }>
-                                    <CardHeader
-                                        sx={{
-                                            textAlign: 'center',
-                                            padding: '0',
-                                            color: 'indigo.dark',
-                                            margin: '1em',
-                                        }}
-                                        component="h4"
-                                        title={project.name}
-                                    />
                                     <CardMedia
                                         component="img"
-                                        height="150em"
                                         image={project.image}
                                         alt={project.name}
                                         sx={{
                                             objectFit: 'cover',
                                             objectPosition: 'top',
+                                            height: {
+                                                xl: '9em',
+                                                lg: '12em',
+                                                md: '15em',
+                                                xs: '8em',
+                                            },
                                         }}
                                     />
                                     <CardContent
@@ -154,21 +152,24 @@ function Projects() {
                                             padding: '1em',
                                             color: 'indigo.darkest',
                                         }}>
-                                        <Typography>{project.desc}</Typography>
+                                        <Typography variant="h6">
+                                            {project.name}
+                                        </Typography>
+                                        <Typography variant="body2">
+                                            {project.desc}
+                                        </Typography>
                                     </CardContent>
                                     <CardActions>
                                         {project.role.map((role) => {
                                             return (
                                                 <Chip
+                                                    key={`${project.name} ${role.text}`}
                                                     sx={{
                                                         fontSize: '0.6em',
                                                     }}
                                                     label={role.text}
                                                     color={role.color}
                                                 />
-                                                // <Typography variant="body2">
-                                                //
-                                                // </Typography>
                                             );
                                         })}
                                     </CardActions>

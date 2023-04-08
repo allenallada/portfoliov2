@@ -6,7 +6,7 @@ function TopNav() {
     return (
         <Box
             component="header"
-            sx={{
+            sx={(theme) => ({
                 position: 'fixed',
                 color: 'common.white',
                 top: 0,
@@ -14,10 +14,12 @@ function TopNav() {
                 padding: '3em',
                 background: 'transparent',
                 width: '100%',
-                fontSize: '1vw',
                 scrollSnapAlign: 'center',
                 zIndex: '100',
-            }}>
+                [theme.breakpoints.down('md')]: {
+                    padding: '2em',
+                },
+            })}>
             <Stack
                 alignItems="center"
                 direction="row"
@@ -25,19 +27,27 @@ function TopNav() {
                 justifyContent="space-between">
                 <Box
                     component="img"
-                    sx={{
+                    sx={(theme) => ({
                         width: '5em',
                         height: '5em',
-                    }}
+                        [theme.breakpoints.down('md')]: {
+                            width: '3.5em',
+                            height: '3.5em',
+                        },
+                    })}
                     alt="My Logo"
                     src="\img\green-no-bg.png"></Box>
                 <Box>
                     <IconButton>
                         <MenuIcon
-                            sx={{
+                            sx={(theme) => ({
                                 color: 'indigo.darkest',
                                 fontSize: '1.5em',
-                            }}
+                                [theme.breakpoints.down('md')]: {
+                                    color: 'success.dark',
+                                    fontSize: '1em',
+                                },
+                            })}
                         />
                     </IconButton>
                 </Box>
