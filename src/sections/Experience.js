@@ -1,4 +1,4 @@
-import { Box, Typography, Divider } from '@mui/material';
+import { Box, Typography, Divider, Grow } from '@mui/material';
 import * as React from 'react';
 
 const experience = [
@@ -78,51 +78,53 @@ function Experience() {
                     })}>
                     {experience.map((item, index) => {
                         return (
-                            <Box
-                                key={`${item.position} ${item.company}`}
-                                width="30em"
-                                sx={(theme) => ({
-                                    marginY: '1em',
-                                    marginLeft: `${(index + 1) * 12}em`,
-                                    [theme.breakpoints.down('md')]: {
-                                        marginX: '3em',
-                                        width: 'auto',
-                                    },
-                                })}>
-                                <Typography
-                                    color="success.main"
-                                    variant="caption">
-                                    {item.date}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="subtitle2">
-                                    {item.company}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="h5">
-                                    {item.position}
-                                </Typography>
-                                {item.roles.map((role) => (
+                            <Grow in={true}>
+                                <Box
+                                    key={`${item.position} ${item.company}`}
+                                    width="30em"
+                                    sx={(theme) => ({
+                                        marginY: '1em',
+                                        marginLeft: `${(index + 1) * 12}em`,
+                                        [theme.breakpoints.down('md')]: {
+                                            marginX: '3em',
+                                            width: 'auto',
+                                        },
+                                    })}>
                                     <Typography
-                                        key={`${item.position} ${role}`}
-                                        paddingLeft="1em"
-                                        letterSpacing="0.07em"
-                                        color="success.dark"
-                                        variant="body2">
-                                        &#x2022; {role}
+                                        color="success.main"
+                                        variant="caption">
+                                        {item.date}
                                     </Typography>
-                                ))}
-                                <br />
-                                {index !== experience.length - 1 && (
-                                    <Divider
-                                        sx={{
-                                            borderColor: 'success.light',
-                                        }}
-                                    />
-                                )}
-                            </Box>
+                                    <Typography
+                                        color="success.main"
+                                        variant="subtitle2">
+                                        {item.company}
+                                    </Typography>
+                                    <Typography
+                                        color="success.main"
+                                        variant="h5">
+                                        {item.position}
+                                    </Typography>
+                                    {item.roles.map((role) => (
+                                        <Typography
+                                            key={`${item.position} ${role}`}
+                                            paddingLeft="1em"
+                                            letterSpacing="0.07em"
+                                            color="success.dark"
+                                            variant="body2">
+                                            &#x2022; {role}
+                                        </Typography>
+                                    ))}
+                                    <br />
+                                    {index !== experience.length - 1 && (
+                                        <Divider
+                                            sx={{
+                                                borderColor: 'success.light',
+                                            }}
+                                        />
+                                    )}
+                                </Box>
+                            </Grow>
                         );
                     })}
                 </Box>

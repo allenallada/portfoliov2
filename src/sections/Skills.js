@@ -15,32 +15,32 @@ const skills = [
         icon: 'img/skills/react-redux.png',
     },
     {
-        value: 5,
+        value: 7,
         text: 'Vue.js/Vuex',
         icon: 'img/skills/vue-vuex.png',
     },
     {
-        value: 7,
+        value: 8,
         text: 'PHP',
         icon: 'img/skills/php.png',
     },
     {
-        value: 6,
+        value: 8,
         text: 'Laravel',
         icon: 'img/skills/laravel.png',
     },
     {
-        value: 5,
+        value: 6,
         text: 'Node.js',
         icon: 'img/skills/node.png',
     },
     {
-        value: 5,
+        value: 6,
         text: 'Express.js',
         icon: 'img/skills/express.png',
     },
     {
-        value: 6,
+        value: 7,
         text: 'MySQL',
         icon: 'img/skills/mysql.png',
     },
@@ -48,12 +48,12 @@ const skills = [
 
 const others = [
     {
-        value: 5,
+        value: 6,
         text: 'Jira',
         icon: 'img/skills/jira.png',
     },
     {
-        value: 5,
+        value: 6,
         text: 'Confluence',
         icon: 'img/skills/confluence.png',
     },

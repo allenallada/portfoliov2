@@ -29,6 +29,7 @@ function TopSection() {
                         [theme.breakpoints.down('md')]: {
                             flexDirection: 'column',
                             background: 'common.white',
+                            paddingTop: '5em',
                         },
                     })}>
                     <Box

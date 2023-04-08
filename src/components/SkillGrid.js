@@ -81,6 +81,20 @@ function SkillGrid({ title, items }) {
                                     {item.text}
                                 </Typography>
                             </CircularProgressbarWithChildren>
+                            <Typography
+                                sx={(theme) => ({
+                                    fontSize: '0.8em',
+                                    fontWeight: '600',
+                                    textAlign: 'center',
+                                    [theme.breakpoints.down('lg')]: {
+                                        fontSize: '1.5em',
+                                    },
+                                    [theme.breakpoints.down('sm')]: {
+                                        fontSize: '2em',
+                                    },
+                                })}>
+                                {`${item.value}/10`}
+                            </Typography>
                         </Container>
                     </Grid>
                 ))}
