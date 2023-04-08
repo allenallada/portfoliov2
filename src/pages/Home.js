@@ -22,7 +22,7 @@ function Home() {
                     scrollSnapType: 'y mandatory',
                 },
                 [theme.breakpoints.down('md')]: {
-                    fontSize: '0.8em',
+                    fontSize: '0.7em',
                 },
             })}>
             <TopNav />

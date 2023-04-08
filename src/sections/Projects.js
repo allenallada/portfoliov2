@@ -12,10 +12,70 @@ import * as React from 'react';
 
 const projects = [
     {
+        name: 'Base Japan Product Transfer',
+        image: 'https://file.cafe24cos.com/product-transfer/basejp/images/promotional/JP-App-detail.jpg',
+        desc: 'An app used to migrate products from the Base Japan store, uploads the file exported from Base Japan, reads and uploads the file to Cafe24',
+        tags: [
+            {
+                text: 'JS',
+                color: 'warning',
+                fill: true,
+            },
+            {
+                text: 'Vue',
+                color: 'success',
+                fill: true,
+            },
+            {
+                text: 'Laravel',
+                color: 'error',
+                fill: true,
+            },
+            {
+                text: 'PHP',
+                color: 'primary',
+                fill: true,
+            },
+            {
+                text: 'MySQL',
+                color: 'warning',
+                fill: true,
+            },
+            {
+                text: 'Lead Developer',
+                color: 'error',
+            },
+            {
+                text: 'Maintainer',
+                color: 'success',
+            },
+        ],
+    },
+    {
         name: 'Purchasing Pattern Display',
         image: 'https://file.cafe24cos.com/purchasing-pattern/images/promotional/purchasing_pattern_en.png',
         desc: 'An app that analyzes the purchases for a Product based on options and shows in a graphical way',
-        role: [
+        tags: [
+            {
+                text: 'JS',
+                color: 'warning',
+                fill: true,
+            },
+            {
+                text: 'Laravel',
+                color: 'error',
+                fill: true,
+            },
+            {
+                text: 'PHP',
+                color: 'primary',
+                fill: true,
+            },
+            {
+                text: 'Redis',
+                color: 'error',
+                fill: true,
+            },
             {
                 text: 'Developer',
                 color: 'primary',
@@ -30,25 +90,31 @@ const projects = [
         name: 'Makeshop Product Transfer',
         image: 'https://file.cafe24cos.com/product-transfer/makeshop/images/promotional/KR-App-detail.jpg',
         desc: 'An app used to migrate products from the Makeshop store, uploads the file exported from Makeshop, reads and uploads the file to Cafe24',
-        role: [
+        tags: [
             {
-                text: 'Developer',
-                color: 'primary',
+                text: 'JS',
+                color: 'warning',
+                fill: true,
             },
             {
-                text: 'Maintainer',
+                text: 'Vue',
                 color: 'success',
+                fill: true,
             },
-        ],
-    },
-    {
-        name: 'Base Japan Product Transfer',
-        image: 'https://file.cafe24cos.com/product-transfer/basejp/images/promotional/JP-App-detail.jpg',
-        desc: 'An app used to migrate products from the Base Japan store, uploads the file exported from Base Japan, reads and uploads the file to Cafe24',
-        role: [
             {
-                text: 'Lead Developer',
+                text: 'Laravel',
                 color: 'error',
+                fill: true,
+            },
+            {
+                text: 'PHP',
+                color: 'primary',
+                fill: true,
+            },
+            {
+                text: 'MySQL',
+                color: 'warning',
+                fill: true,
             },
             {
                 text: 'Developer',
@@ -64,7 +130,32 @@ const projects = [
         name: 'Internal Company Employee Tool',
         image: 'img/employee_tool.png',
         desc: 'App that monitors the attendance, computes leaves and other employee tools. Internal so no further information could be given',
-        role: [
+        tags: [
+            {
+                text: 'JS',
+                color: 'warning',
+                fill: true,
+            },
+            {
+                text: 'Vue',
+                color: 'success',
+                fill: true,
+            },
+            {
+                text: 'Laravel',
+                color: 'error',
+                fill: true,
+            },
+            {
+                text: 'PHP',
+                color: 'primary',
+                fill: true,
+            },
+            {
+                text: 'MySQL',
+                color: 'warning',
+                fill: true,
+            },
             {
                 text: 'Developer',
                 color: 'primary',
@@ -86,7 +177,8 @@ function Projects() {
                 position: 'relative',
                 width: '100%',
                 overflow: 'hidden',
-                maxHeight: '100em',
+                height: 'auto',
+                overflow: 'visible',
                 [theme.breakpoints.up('lg')]: {
                     height: '100vh',
                     scrollSnapAlign: 'center',
@@ -160,16 +252,29 @@ function Projects() {
                                             {project.desc}
                                         </Typography>
                                     </CardContent>
-                                    <CardActions>
-                                        {project.role.map((role) => {
+                                    <CardActions
+                                        sx={{
+                                            display: 'flex',
+                                            flexWrap: 'wrap',
+                                            justifyContent: 'center',
+                                        }}>
+                                        {project.tags.map((tag) => {
                                             return (
                                                 <Chip
-                                                    key={`${project.name} ${role.text}`}
+                                                    variant={
+                                                        tag.fill
+                                                            ? 'filled'
+                                                            : 'outlined'
+                                                    }
+                                                    key={`${project.name} ${tag.text}`}
                                                     sx={{
                                                         fontSize: '0.6em',
+                                                        height: '3em',
+                                                        padding: '0.05em',
+                                                        marginY: '0.5em',
                                                     }}
-                                                    label={role.text}
-                                                    color={role.color}
+                                                    label={tag.text}
+                                                    color={tag.color}
                                                 />
                                             );
                                         })}
