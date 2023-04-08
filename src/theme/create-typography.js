@@ -12,6 +12,11 @@ export const createTypography = () => {
             fontWeight: 400,
             lineHeight: 1.57,
         },
+        body3: {
+            fontSize: '1.5em',
+            fontWeight: 400,
+            lineHeight: 1.5,
+        },
         button: {
             fontWeight: 600,
         },

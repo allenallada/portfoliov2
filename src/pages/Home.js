@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { Box } from '@mui/material';
 import TopSection from '../sections/TopSection';
 import Experience from '../sections/Experience';
 import TopNav from '../sections/TopNav';
 import Projects from '../sections/Projects';
 import Skills from '../sections/Skills';
-import { Box } from '@mui/material';
+import AboutMe from '../sections/AboutMe';
 
 function Home() {
     return (
@@ -30,6 +31,7 @@ function Home() {
             <Experience />
             <Projects />
             <Skills />
+            <AboutMe />
         </Box>
     );
 }
