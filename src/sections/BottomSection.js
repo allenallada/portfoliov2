@@ -55,7 +55,12 @@ export default function BottomSection() {
                             },
                         })}>
                         <Box
-                            width="30em"
+                            sx={(theme) => ({
+                                width: '30em',
+                                [theme.breakpoints.down('md')]: {
+                                    width: '25em',
+                                },
+                            })}
                             height="100%"
                             display="flex"
                             flexDirection="column"
@@ -101,7 +106,12 @@ export default function BottomSection() {
                             </Link>
                         </Box>
                         <Box
-                            width="30em"
+                            sx={(theme) => ({
+                                width: '30em',
+                                [theme.breakpoints.down('md')]: {
+                                    width: '25em',
+                                },
+                            })}
                             height="100%"
                             display="flex"
                             flexDirection="column"
@@ -161,6 +171,7 @@ export default function BottomSection() {
                         })}>
                         <Typography
                             variant="h6"
+                            lineHeight="2em"
                             letterSpacing="0.08em"
                             color="common.white"
                             marginRight="auto">
