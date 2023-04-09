@@ -6,7 +6,7 @@ const paragraphs = [
     'I started my journey in programming when I was asked to help with a thesis project. I quickly fell in love with programming and the technologies behind it and after that, I decided to shift my career from a technician to a web developer.',
     'To hone my skills and knowledge, I have taken various courses from Udemy and other sources to learn web development. It was a challenging journey, but I enjoyed learning new things and exploring the possibilities of web development. In September 2018, I landed my first job as a web developer at Cafe24 Philippines, and I have been working there ever since.',
     'I am passionate about web development and strive to create innovative and user-friendly web applications. I take pride in my work and believe in continuously improving my skills to deliver the best possible results to my clients.',
-    'In my free time, I enjoy playing games with my buddies, my in-game name is Nutree, which is the inspiration behind the N in my logo.',
+    'In my free time, I enjoy playing games with my buddies, the N in my logo stands for Nutree,  my in-game name.',
 ];
 
 export default function AboutMe() {

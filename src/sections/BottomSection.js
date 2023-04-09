@@ -2,6 +2,13 @@ import * as React from 'react';
 import { Box, Typography, Divider, Link } from '@mui/material';
 import { SocialIcon } from 'react-social-icons';
 
+const socials = [
+    'https://www.linkedin.com/in/allen-allada-ab5131166/',
+    'https://www.youtube.com/channel/UCog4v5YQ5ZXoCKnM-buG5mQ',
+    'https://github.com/allenallada',
+    'https://www.facebook.com/allen.allada/',
+];
+
 export default function BottomSection() {
     return (
         <Box
@@ -157,36 +164,17 @@ export default function BottomSection() {
                             letterSpacing="0.08em"
                             color="common.white"
                             marginRight="auto">
-                            Allen Allada 2023
+                            &#169; Allen Allada 2023
                         </Typography>
-                        <Box marginX="0.5em">
-                            <SocialIcon
-                                bgColor="white"
-                                style={{ height: '2em', width: '2em' }}
-                                url="https://www.linkedin.com/in/allen-allada-ab5131166/"
-                            />
-                        </Box>
-                        <Box marginX="0.5em">
-                            <SocialIcon
-                                bgColor="white"
-                                style={{ height: '2em', width: '2em' }}
-                                url="https://www.youtube.com/channel/UCog4v5YQ5ZXoCKnM-buG5mQ"
-                            />
-                        </Box>
-                        <Box marginX="0.5em">
-                            <SocialIcon
-                                bgColor="white"
-                                style={{ height: '2em', width: '2em' }}
-                                url="https://github.com/allenallada"
-                            />
-                        </Box>
-                        <Box marginX="0.5em">
-                            <SocialIcon
-                                bgColor="white"
-                                style={{ height: '2em', width: '2em' }}
-                                url="https://www.facebook.com/allen.allada/"
-                            />
-                        </Box>
+                        {socials.map((link) => (
+                            <Box marginX="0.5em">
+                                <SocialIcon
+                                    bgColor="white"
+                                    style={{ height: '2em', width: '2em' }}
+                                    url={link}
+                                />
+                            </Box>
+                        ))}
                     </Box>
                 </Box>
             </Box>
