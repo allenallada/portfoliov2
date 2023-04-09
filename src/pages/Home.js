@@ -6,6 +6,7 @@ import TopNav from '../sections/TopNav';
 import Projects from '../sections/Projects';
 import Skills from '../sections/Skills';
 import AboutMe from '../sections/AboutMe';
+import BottomSection from '../sections/BottomSection';
 
 function Home() {
     return (
@@ -32,6 +33,7 @@ function Home() {
             <Projects />
             <Skills />
             <AboutMe />
+            <BottomSection />
         </Box>
     );
 }

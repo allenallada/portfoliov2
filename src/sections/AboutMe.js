@@ -48,8 +48,8 @@ export default function AboutMe() {
                         <Box
                             component="img"
                             sx={(theme) => ({
-                                width: '30em',
-                                height: '30em',
+                                width: '25em',
+                                height: '25em',
                                 [theme.breakpoints.down('md')]: {
                                     marginY: '2em',
                                     width: '23em',
@@ -63,8 +63,9 @@ export default function AboutMe() {
                     <Box
                         sx={{
                             paddingX: {
-                                lg: '10em',
-                                md: '5em',
+                                lg: '15em',
+                                md: '15em',
+                                sm: '5em',
                                 xs: '2em',
                             },
                             height: {
