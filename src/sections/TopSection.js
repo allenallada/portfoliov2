@@ -99,8 +99,9 @@ function TopSection() {
                                     },
                                 })}>
                                 <Typography
+                                    marginTop="0"
                                     variant="body2"
-                                    width="12vw"
+                                    width="13vw"
                                     sx={(theme) => ({
                                         [theme.breakpoints.down('md')]: {
                                             width: '40%',
@@ -109,11 +110,11 @@ function TopSection() {
                                     Skilled using <strong>PHP</strong>,
                                     <strong>Laravel</strong> and
                                     <nobr> front-end</nobr> libraries such as
-                                    <strong> React, Vue.js</strong> and more.
+                                    <strong> React, Vue.js</strong>.
                                 </Typography>
                                 <Typography
                                     variant="body2"
-                                    width="12vw"
+                                    width="13vw"
                                     sx={(theme) => ({
                                         [theme.breakpoints.down('md')]: {
                                             width: '40%',

@@ -75,6 +75,11 @@ function Experience() {
                             paddingX: '0',
                             margin: '0',
                         },
+
+                        [theme.breakpoints.up('xxl')]: {
+                            display: 'flex',
+                            justifyContent: 'center',
+                        },
                     })}>
                     {experience.map((item, index) => {
                         return (
@@ -88,6 +93,10 @@ function Experience() {
                                     }%`,
                                     [theme.breakpoints.down('md')]: {
                                         marginX: '3em',
+                                        width: 'auto',
+                                    },
+                                    [theme.breakpoints.up('xxl')]: {
+                                        marginX: '2em',
                                         width: 'auto',
                                     },
                                 })}>
@@ -121,6 +130,7 @@ function Experience() {
                                     <Divider
                                         sx={{
                                             borderColor: 'success.light',
+                                            display: { xxl: 'none' },
                                         }}
                                     />
                                 )}

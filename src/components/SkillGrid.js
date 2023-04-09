@@ -18,10 +18,15 @@ function SkillGrid({ title, items }) {
                 display="flex"
                 justifyContent="center">
                 <Typography
-                    variant="h2"
-                    marginBottom="1em"
-                    textAlign="center"
-                    fontWeight="800">
+                    sx={(theme) => ({
+                        marginBottom: '1em',
+                        textAlign: 'center',
+                        fontWeight: '800',
+                        [theme.breakpoints.down('md')]: {
+                            fontSize: '2.1rem',
+                        },
+                    })}
+                    variant="h2">
                     {title}
                 </Typography>
             </Box>
