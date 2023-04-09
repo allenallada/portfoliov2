@@ -28,7 +28,6 @@ function SkillGrid({ title, items }) {
             <Grid
                 container
                 rowSpacing={2}
-                fontSize="1vw"
                 justifyContent="center"
                 marginBottom="3em">
                 {items.map((item) => (

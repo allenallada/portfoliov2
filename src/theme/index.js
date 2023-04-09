@@ -18,6 +18,7 @@ export function createTheme() {
                 md: 900,
                 lg: 1200,
                 xl: 1440,
+                xxl: 1930,
             },
         },
         components,

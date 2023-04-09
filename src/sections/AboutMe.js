@@ -50,6 +50,7 @@ export default function AboutMe() {
                             sx={(theme) => ({
                                 width: '25em',
                                 height: '25em',
+                                margin: 'auto',
                                 [theme.breakpoints.down('md')]: {
                                     marginY: '2em',
                                     width: '23em',

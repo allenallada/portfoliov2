@@ -75,7 +75,13 @@ function Skills() {
                     scrollSnapAlign: 'center',
                 },
             })}>
-            <Container>
+            <Container
+                sx={(theme) => ({
+                    fontSize: '1vw',
+                    [theme.breakpoints.up('xxl')]: {
+                        fontSize: '1.2rem',
+                    },
+                })}>
                 <SkillGrid
                     title="Core Technologies"
                     items={skills}
