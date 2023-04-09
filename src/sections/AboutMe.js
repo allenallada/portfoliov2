@@ -22,9 +22,13 @@ export default function AboutMe() {
                 },
                 backgroundColor: 'success.main',
             })}>
-            <Box component="div">
+            <Box
+                component="div"
+                display="flex"
+                justifyContent="center">
                 <Box
                     sx={(theme) => ({
+                        maxWidth: '1920px',
                         display: 'flex',
                         justifyContent: 'center',
                         [theme.breakpoints.down('md')]: {
