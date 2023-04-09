@@ -207,6 +207,7 @@ function Projects() {
                     return (
                         <Grid
                             key={project.name}
+                            xxl={5}
                             xl={9}
                             lg={10}
                             md={9}
@@ -220,6 +221,7 @@ function Projects() {
                                         marginX: 'auto',
                                         cursor: 'pointer',
                                         width: '100%',
+                                        height: '100%',
                                     }}
                                     onClick={(event) =>
                                         window.open(project.image)

@@ -83,7 +83,9 @@ function Experience() {
                                 width="30em"
                                 sx={(theme) => ({
                                     marginY: '1em',
-                                    marginLeft: `${(index + 1) * 12}em`,
+                                    marginLeft: `${
+                                        index * (100 / experience.length)
+                                    }%`,
                                     [theme.breakpoints.down('md')]: {
                                         marginX: '3em',
                                         width: 'auto',

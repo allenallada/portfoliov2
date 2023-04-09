@@ -26,6 +26,9 @@ function Home() {
                 [theme.breakpoints.down('md')]: {
                     fontSize: '0.7em',
                 },
+                [theme.breakpoints.up('xxl')]: {
+                    fontSize: '1.2rem',
+                },
             })}>
             <TopNav />
             <TopSection />
