@@ -74,8 +74,11 @@ function SkillGrid({ title, items }) {
                                         [theme.breakpoints.down('lg')]: {
                                             fontSize: '1.5em',
                                         },
-                                        [theme.breakpoints.down('sm')]: {
+                                        [theme.breakpoints.down('md')]: {
                                             fontSize: '2em',
+                                        },
+                                        [theme.breakpoints.down('sm')]: {
+                                            fontSize: '3em',
                                         },
                                     })}>
                                     {item.text}
@@ -87,10 +90,13 @@ function SkillGrid({ title, items }) {
                                     fontWeight: '600',
                                     textAlign: 'center',
                                     [theme.breakpoints.down('lg')]: {
-                                        fontSize: '1.5em',
+                                        fontSize: '2em',
+                                    },
+                                    [theme.breakpoints.down('md')]: {
+                                        fontSize: '2em',
                                     },
                                     [theme.breakpoints.down('sm')]: {
-                                        fontSize: '2em',
+                                        fontSize: '3em',
                                     },
                                 })}>
                                 {`${item.value}/10`}
