@@ -18,6 +18,14 @@ import ContactPageIcon from '@mui/icons-material/ContactPage';
 import PowerIcon from '@mui/icons-material/Power';
 import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
+import { SocialIcon } from 'react-social-icons';
+
+const socials = [
+    'https://www.linkedin.com/in/allen-allada-ab5131166/',
+    'https://www.youtube.com/channel/UCog4v5YQ5ZXoCKnM-buG5mQ',
+    'https://github.com/allenallada',
+    'https://www.facebook.com/allen.allada/',
+];
 
 function TopNav() {
     const [open, setOpen] = React.useState(false);
@@ -44,9 +52,15 @@ function TopNav() {
                 anchor="right"
                 PaperProps={{
                     sx: {
-                        backgroundColor: 'success.main',
-                        color: 'neutral.800',
+                        backgroundColor: 'common.white',
                         width: 400,
+                    },
+                }}
+                slotProps={{
+                    backdrop: {
+                        sx: {
+                            background: 'transparent',
+                        },
                     },
                 }}
                 open={open}
@@ -54,9 +68,9 @@ function TopNav() {
                 onKeyDown={() => setOpen(false)}>
                 <Box
                     sx={{
-                        backgroundColor: 'inherit',
+                        backgroundColor: 'common.white',
                         width: 400,
-                        color: 'common.white',
+                        color: 'indigo.darkest',
                     }}
                     role="presentation">
                     <List>
@@ -70,7 +84,7 @@ function TopNav() {
                                 </ListItemIcon>
                                 <ListItemText>
                                     <Link
-                                        variant="subtitle1"
+                                        variant="body1"
                                         color="inherit"
                                         underline="none">
                                         Personal Projects
@@ -88,7 +102,7 @@ function TopNav() {
                                 </ListItemIcon>
                                 <ListItemText>
                                     <Link
-                                        variant="subtitle1"
+                                        variant="body1"
                                         color="inherit"
                                         underline="none">
                                         My Resume
@@ -106,7 +120,7 @@ function TopNav() {
                                 </ListItemIcon>
                                 <ListItemText>
                                     <Link
-                                        variant="subtitle1"
+                                        variant="body1"
                                         color="inherit"
                                         underline="none">
                                         Plugs
@@ -117,7 +131,7 @@ function TopNav() {
                     </List>
                     <Divider
                         sx={{
-                            borderColor: 'common.white',
+                            borderColor: 'indigo.main',
                         }}
                     />
                     <List>
@@ -135,7 +149,7 @@ function TopNav() {
                                 </ListItemIcon>
                                 <ListItemText>
                                     <Link
-                                        variant="subtitle1"
+                                        variant="body1"
                                         letterSpacing="0.1em"
                                         marginBottom="1em"
                                         color="inherit"
@@ -161,17 +175,37 @@ function TopNav() {
                                 </ListItemIcon>
                                 <ListItemText>
                                     <Link
-                                        variant="subtitle1"
+                                        variant="body1"
                                         letterSpacing="0.1em"
                                         marginBottom="1em"
                                         color="inherit"
                                         underline="none">
-                                        Let's chat
+                                        Message me on Discord
                                     </Link>
                                 </ListItemText>
                             </ListItemButton>
                         </ListItem>
                     </List>
+                    <Divider
+                        sx={{
+                            borderColor: 'indigo.main',
+                        }}
+                    />
+                    <Box
+                        display="flex"
+                        justifyContent="center"
+                        paddingY="16px"
+                        paddingX="32px">
+                        {socials.map((link) => (
+                            <Box marginX="1.5em">
+                                <SocialIcon
+                                    bgColor="#4338CA"
+                                    style={{ height: '2em', width: '2em' }}
+                                    url={link}
+                                />
+                            </Box>
+                        ))}
+                    </Box>
                 </Box>
             </Drawer>
             <Stack
