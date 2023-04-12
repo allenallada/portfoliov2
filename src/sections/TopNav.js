@@ -1,16 +1,26 @@
-import { Box, IconButton, Stack, Menu, MenuItem, Link } from '@mui/material';
+import {
+    Box,
+    IconButton,
+    Stack,
+    Drawer,
+    List,
+    ListItem,
+    Link,
+    Divider,
+    ListItemButton,
+    ListItemText,
+    ListItemIcon,
+} from '@mui/material';
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
+import WalletIcon from '@mui/icons-material/Wallet';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import PowerIcon from '@mui/icons-material/Power';
+import EmailIcon from '@mui/icons-material/Email';
+import ChatIcon from '@mui/icons-material/Chat';
 
 function TopNav() {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const [open, setOpen] = React.useState(false);
 
     return (
         <Box
@@ -30,6 +40,140 @@ function TopNav() {
                     display: 'none',
                 },
             })}>
+            <Drawer
+                anchor="right"
+                PaperProps={{
+                    sx: {
+                        backgroundColor: 'success.main',
+                        color: 'neutral.800',
+                        width: 400,
+                    },
+                }}
+                open={open}
+                onClose={() => setOpen(false)}
+                onKeyDown={() => setOpen(false)}>
+                <Box
+                    sx={{
+                        backgroundColor: 'inherit',
+                        width: 400,
+                        color: 'common.white',
+                    }}
+                    role="presentation">
+                    <List>
+                        <ListItem>
+                            <ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        color: 'inherit',
+                                    }}>
+                                    <WalletIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    <Link
+                                        variant="subtitle1"
+                                        color="inherit"
+                                        underline="none">
+                                        Personal Projects
+                                    </Link>
+                                </ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        color: 'inherit',
+                                    }}>
+                                    <ContactPageIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    <Link
+                                        variant="subtitle1"
+                                        color="inherit"
+                                        underline="none">
+                                        My Resume
+                                    </Link>
+                                </ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        color: 'inherit',
+                                    }}>
+                                    <PowerIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    <Link
+                                        variant="subtitle1"
+                                        color="inherit"
+                                        underline="none">
+                                        Plugs
+                                    </Link>
+                                </ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                    <Divider
+                        sx={{
+                            borderColor: 'common.white',
+                        }}
+                    />
+                    <List>
+                        <ListItem>
+                            <ListItemButton
+                                onClick={() =>
+                                    (window.location =
+                                        'mailto:allenallada58@gmail.com')
+                                }>
+                                <ListItemIcon
+                                    sx={{
+                                        color: 'inherit',
+                                    }}>
+                                    <EmailIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    <Link
+                                        variant="subtitle1"
+                                        letterSpacing="0.1em"
+                                        marginBottom="1em"
+                                        color="inherit"
+                                        underline="none">
+                                        Send me an email
+                                    </Link>
+                                </ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                        <ListItem>
+                            <ListItemButton
+                                onClick={() =>
+                                    window.open(
+                                        'https://discord.com/users/165714344015953921',
+                                        '_blank'
+                                    )
+                                }>
+                                <ListItemIcon
+                                    sx={{
+                                        color: 'inherit',
+                                    }}>
+                                    <ChatIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    <Link
+                                        variant="subtitle1"
+                                        letterSpacing="0.1em"
+                                        marginBottom="1em"
+                                        color="inherit"
+                                        underline="none">
+                                        Let's chat
+                                    </Link>
+                                </ListItemText>
+                            </ListItemButton>
+                        </ListItem>
+                    </List>
+                </Box>
+            </Drawer>
             <Stack
                 alignItems="center"
                 direction="row"
@@ -48,75 +192,7 @@ function TopNav() {
                     alt="My Logo"
                     src="\img\green-no-bg.png"></Box>
                 <Box>
-                    <Menu
-                        anchorEl={anchorEl}
-                        id="account-menu"
-                        open={open}
-                        onClose={handleClose}
-                        onClick={handleClose}
-                        PaperProps={{
-                            elevation: 0,
-                            sx: {
-                                overflow: 'visible',
-                                filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                                mt: 1.5,
-                                '&:before': {
-                                    content: '""',
-                                    display: 'block',
-                                    position: 'absolute',
-                                    top: 0,
-                                    right: 14,
-                                    width: 10,
-                                    height: 10,
-                                    bgcolor: 'background.paper',
-                                    transform: 'translateY(-50%) rotate(45deg)',
-                                    zIndex: 0,
-                                },
-                            },
-                        }}
-                        transformOrigin={{
-                            horizontal: 'right',
-                            vertical: 'top',
-                        }}
-                        anchorOrigin={{
-                            horizontal: 'right',
-                            vertical: 'bottom',
-                        }}>
-                        <MenuItem onClick={handleClose}>
-                            <Link
-                                variant="subtitle1"
-                                underline="none"
-                                color="indigo.darkest"
-                                sx={{
-                                    cursor: 'pointer',
-                                }}>
-                                Personal Projects
-                            </Link>
-                        </MenuItem>
-                        <MenuItem onClick={handleClose}>
-                            <Link
-                                variant="subtitle1"
-                                underline="none"
-                                color="indigo.darkest"
-                                sx={{
-                                    cursor: 'pointer',
-                                }}>
-                                My Resume
-                            </Link>
-                        </MenuItem>
-                        <MenuItem onClick={handleClose}>
-                            <Link
-                                underline="none"
-                                variant="subtitle1"
-                                color="indigo.darkest"
-                                sx={{
-                                    cursor: 'pointer',
-                                }}>
-                                Plugs
-                            </Link>
-                        </MenuItem>
-                    </Menu>
-                    <IconButton onClick={handleClick}>
+                    <IconButton onClick={() => setOpen(!open)}>
                         <MenuIcon
                             sx={(theme) => ({
                                 color: 'indigo.darkest',
