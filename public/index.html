@@ -315,6 +315,19 @@
                     color: rgba(203, 213, 224, var(--text-opacity));
                 }
             }
+            #nprogress {
+                pointer-events: none;
+            }
+
+            #nprogress .bar {
+                background-color: #6366f1;
+                height: 3px;
+                left: 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 2000;
+            }
         </style>
     </head>
     <body class="antialiased">

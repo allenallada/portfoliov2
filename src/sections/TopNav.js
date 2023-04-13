@@ -5,7 +5,6 @@ import {
     Drawer,
     List,
     ListItem,
-    Link,
     Divider,
     ListItemButton,
     ListItemText,
@@ -21,6 +20,7 @@ import PowerIcon from '@mui/icons-material/Power';
 import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import { SocialIcon } from 'react-social-icons';
+import { Link } from 'react-router-dom';
 
 const socials = [
     'https://www.linkedin.com/in/allen-allada-ab5131166/',
@@ -109,60 +109,60 @@ function TopNav() {
                     }}
                     role="presentation">
                     <List>
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon
-                                    sx={{
-                                        color: 'inherit',
-                                    }}>
-                                    <WalletIcon />
-                                </ListItemIcon>
-                                <ListItemText>
-                                    <Link
+                        <Link to="/resume">
+                            <ListItem disablePadding>
+                                <ListItemButton>
+                                    <ListItemIcon
+                                        sx={{
+                                            color: 'inherit',
+                                        }}>
+                                        <WalletIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
                                         variant="body1"
                                         color="inherit"
                                         underline="none">
                                         Personal Projects
-                                    </Link>
-                                </ListItemText>
-                            </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon
-                                    sx={{
-                                        color: 'inherit',
-                                    }}>
-                                    <ContactPageIcon />
-                                </ListItemIcon>
-                                <ListItemText>
-                                    <Link
+                                    </ListItemText>
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+                        <Link to="/resume">
+                            <ListItem disablePadding>
+                                <ListItemButton>
+                                    <ListItemIcon
+                                        sx={{
+                                            color: 'inherit',
+                                        }}>
+                                        <ContactPageIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
                                         variant="body1"
                                         color="inherit"
                                         underline="none">
                                         My Resume
-                                    </Link>
-                                </ListItemText>
-                            </ListItemButton>
-                        </ListItem>
-                        <ListItem disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon
-                                    sx={{
-                                        color: 'inherit',
-                                    }}>
-                                    <PowerIcon />
-                                </ListItemIcon>
-                                <ListItemText>
-                                    <Link
+                                    </ListItemText>
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
+                        <Link to="/plugs">
+                            <ListItem disablePadding>
+                                <ListItemButton>
+                                    <ListItemIcon
+                                        sx={{
+                                            color: 'inherit',
+                                        }}>
+                                        <PowerIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
                                         variant="body1"
                                         color="inherit"
                                         underline="none">
                                         Plugs
-                                    </Link>
-                                </ListItemText>
-                            </ListItemButton>
-                        </ListItem>
+                                    </ListItemText>
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
                     </List>
                     <Divider
                         sx={{
