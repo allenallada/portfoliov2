@@ -43,7 +43,7 @@ function SkillGrid({ title, items }) {
                         lg={1.1}>
                         <Container
                             sx={{
-                                width: '70%',
+                                width: '75%',
                             }}>
                             <CircularProgressbarWithChildren
                                 value={item.value * 10}
@@ -74,11 +74,14 @@ function SkillGrid({ title, items }) {
                                     sx={(theme) => ({
                                         fontSize: '0.8em',
                                         fontWeight: '600',
-                                        [theme.breakpoints.down('lg')]: {
+                                        [theme.breakpoints.down('xl')]: {
                                             fontSize: '1em',
                                         },
-                                        [theme.breakpoints.down('md')]: {
+                                        [theme.breakpoints.down('lg')]: {
                                             fontSize: '1.5em',
+                                        },
+                                        [theme.breakpoints.down('md')]: {
+                                            fontSize: '1.8em',
                                         },
                                         [theme.breakpoints.down('sm')]: {
                                             fontSize: '2.5em',
@@ -93,10 +96,10 @@ function SkillGrid({ title, items }) {
                                     fontWeight: '600',
                                     textAlign: 'center',
                                     [theme.breakpoints.down('lg')]: {
-                                        fontSize: '1em',
+                                        fontSize: '1.6em',
                                     },
                                     [theme.breakpoints.down('md')]: {
-                                        fontSize: '1.5em',
+                                        fontSize: '1.8em',
                                     },
                                     [theme.breakpoints.down('sm')]: {
                                         fontSize: '2.5em',

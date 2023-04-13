@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import * as React from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 import SkillGrid from '../components/SkillGrid';

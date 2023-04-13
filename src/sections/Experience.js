@@ -120,7 +120,7 @@ function Experience() {
                                     <Box
                                         marginX="auto"
                                         color="indigo.dark"
-                                        padding="1.5em"
+                                        padding="4em 1.5em"
                                         key={`${item.position} ${item.company}`}>
                                         <Typography variant="caption">
                                             {item.date}
@@ -133,7 +133,10 @@ function Experience() {
                                             paddingY="0.5em">
                                             {item.position}
                                         </Typography>
-                                        <Divider />
+
+                                        <Divider
+                                            sx={{ borderColor: 'indigo.dark' }}
+                                        />
                                         <br />
                                         {item.roles.map((role) => (
                                             <Typography
