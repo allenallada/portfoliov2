@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Typography, Divider, Link } from '@mui/material';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 
 const socials = [
