@@ -24,6 +24,13 @@ export const neutral = {
     900: '#111927',
 };
 
+export const template = {
+    neutral: '#EEE9DA',
+    tertiary: '#BDCDD6',
+    secondary: '#93BFCF',
+    primary: '#6096B4',
+};
+
 export const indigo = withAlphas({
     lightest: '#F5F7FF',
     light: '#EBEEFE',

@@ -10,6 +10,8 @@ import {
     ListItemButton,
     ListItemText,
     ListItemIcon,
+    useMediaQuery,
+    useTheme,
 } from '@mui/material';
 import * as React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -29,13 +31,22 @@ const socials = [
 
 function TopNav() {
     const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+    const [anchor, setAnchor] = React.useState(matches ? 'right' : 'top');
+
+    const handleResize = () => {
+        setAnchor(matches ? 'right' : 'top');
+    };
+
+    window.addEventListener('resize', handleResize);
 
     return (
         <Box
             component="header"
             sx={(theme) => ({
                 position: 'fixed',
-                color: 'common.white',
                 top: 0,
                 maxHeight: '12rem',
                 padding: '3em',
@@ -43,24 +54,49 @@ function TopNav() {
                 width: '100%',
                 scrollSnapAlign: 'center',
                 zIndex: '100',
-                [theme.breakpoints.down('md')]: {
+                [theme.breakpoints.down('sm')]: {
                     padding: '2em',
                     display: 'none',
                 },
             })}>
+            <Stack
+                alignItems="center"
+                direction="row"
+                spacing={2}
+                justifyContent="space-between">
+                <Box
+                    component="img"
+                    sx={(theme) => ({
+                        width: '5em',
+                        height: '5em',
+                        [theme.breakpoints.down('md')]: {
+                            width: '3em',
+                            height: '3em',
+                        },
+                    })}
+                    alt="My Logo"
+                    src="\img\green-no-bg.png"></Box>
+                <Box>
+                    <IconButton onClick={() => setOpen(!open)}>
+                        <MenuIcon
+                            sx={(theme) => ({
+                                color: 'indigo.darkest',
+                                fontSize: '1.5em',
+                                [theme.breakpoints.down('md')]: {
+                                    color: 'template.primary',
+                                    fontSize: '1em',
+                                },
+                            })}
+                        />
+                    </IconButton>
+                </Box>
+            </Stack>
             <Drawer
-                anchor="right"
+                anchor={anchor}
                 PaperProps={{
                     sx: {
                         backgroundColor: 'common.white',
-                        width: 400,
-                    },
-                }}
-                slotProps={{
-                    backdrop: {
-                        sx: {
-                            background: 'transparent',
-                        },
+                        width: matches ? 300 : 'auto',
                     },
                 }}
                 open={open}
@@ -69,12 +105,11 @@ function TopNav() {
                 <Box
                     sx={{
                         backgroundColor: 'common.white',
-                        width: 400,
-                        color: 'indigo.darkest',
+                        color: 'indigo.dark',
                     }}
                     role="presentation">
                     <List>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon
                                     sx={{
@@ -92,7 +127,7 @@ function TopNav() {
                                 </ListItemText>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon
                                     sx={{
@@ -110,7 +145,7 @@ function TopNav() {
                                 </ListItemText>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton>
                                 <ListItemIcon
                                     sx={{
@@ -135,7 +170,7 @@ function TopNav() {
                         }}
                     />
                     <List>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton
                                 onClick={() =>
                                     (window.location =
@@ -159,7 +194,7 @@ function TopNav() {
                                 </ListItemText>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem>
+                        <ListItem disablePadding>
                             <ListItemButton
                                 onClick={() =>
                                     window.open(
@@ -208,38 +243,6 @@ function TopNav() {
                     </Box>
                 </Box>
             </Drawer>
-            <Stack
-                alignItems="center"
-                direction="row"
-                spacing={2}
-                justifyContent="space-between">
-                <Box
-                    component="img"
-                    sx={(theme) => ({
-                        width: '5em',
-                        height: '5em',
-                        [theme.breakpoints.down('md')]: {
-                            width: '3em',
-                            height: '3em',
-                        },
-                    })}
-                    alt="My Logo"
-                    src="\img\green-no-bg.png"></Box>
-                <Box>
-                    <IconButton onClick={() => setOpen(!open)}>
-                        <MenuIcon
-                            sx={(theme) => ({
-                                color: 'indigo.darkest',
-                                fontSize: '1.5em',
-                                [theme.breakpoints.down('md')]: {
-                                    color: 'success.dark',
-                                    fontSize: '1em',
-                                },
-                            })}
-                        />
-                    </IconButton>
-                </Box>
-            </Stack>
         </Box>
     );
 }

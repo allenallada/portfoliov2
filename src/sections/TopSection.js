@@ -12,6 +12,7 @@ function TopSection() {
                     height: '100vh',
                     scrollSnapAlign: 'center',
                 },
+                backgroundColor: 'common.white',
             })}>
             <Box
                 sx={(theme) => ({
@@ -121,8 +122,8 @@ function TopSection() {
                                         },
                                     })}>
                                     Proven experience building products for a
-                                    leading <nobr>e-commerce</nobr> company in
-                                    Korea.
+                                    leading <nobr>e-commerce</nobr> company
+                                    based in Korea.
                                 </Typography>
                             </Stack>
                         </Box>
@@ -146,7 +147,6 @@ function TopSection() {
                                 height: '20em',
                                 [theme.breakpoints.down('md')]: {
                                     marginY: '5em',
-                                    backgroundColor: 'common.white',
                                 },
                             })}
                             alt="hey handsome"

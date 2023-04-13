@@ -1,4 +1,4 @@
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import * as React from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 import SkillGrid from '../components/SkillGrid';
@@ -64,22 +64,27 @@ function Skills() {
         <Box
             color="success.main"
             sx={(theme) => ({
-                padding: '3em',
-                display: 'flex',
                 position: 'relative',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignContent: 'center',
+                width: '100%',
                 [theme.breakpoints.up('lg')]: {
                     height: '100vh',
                     scrollSnapAlign: 'center',
                 },
             })}>
-            <Container
+            <Box
+                component="div"
+                height="100%"
                 sx={(theme) => ({
+                    marginX: 'auto',
+                    padding: '3em',
                     fontSize: '1vw',
+                    color: 'indigo.dark',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    maxWidth: '1400px',
                     [theme.breakpoints.up('xxl')]: {
-                        fontSize: '1.2rem',
+                        fontSize: '1rem',
                     },
                 })}>
                 <SkillGrid
@@ -90,7 +95,7 @@ function Skills() {
                     title="Others"
                     items={others}
                 />
-            </Container>
+            </Box>
         </Box>
     );
 }
