@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Box, Typography, Divider, Link } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { SocialIcon } from 'react-social-icons';
 
 const socials = [
@@ -10,6 +11,8 @@ const socials = [
 ];
 
 export default function BottomSection() {
+    const navigate = useNavigate();
+
     return (
         <Box
             sx={(theme) => ({
@@ -20,7 +23,7 @@ export default function BottomSection() {
                     height: '100vh',
                     scrollSnapAlign: 'center',
                 },
-                backgroundColor: 'indigo.dark',
+                backgroundColor: 'indigo.darkest',
             })}>
             <Box
                 sx={(theme) => ({
@@ -132,6 +135,7 @@ export default function BottomSection() {
                                 marginBottom="1em"
                                 color="common.white"
                                 underline="hover"
+                                onClick={() => navigate('/projects')}
                                 sx={{
                                     cursor: 'pointer',
                                 }}>
@@ -143,6 +147,7 @@ export default function BottomSection() {
                                 marginBottom="1em"
                                 color="common.white"
                                 underline="hover"
+                                onClick={() => navigate('/resume')}
                                 sx={{
                                     cursor: 'pointer',
                                 }}>
@@ -154,6 +159,7 @@ export default function BottomSection() {
                                 marginBottom="1em"
                                 color="common.white"
                                 underline="hover"
+                                onClick={() => navigate('/plugs')}
                                 sx={{
                                     cursor: 'pointer',
                                 }}>

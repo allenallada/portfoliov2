@@ -56,7 +56,6 @@ function TopNav() {
                 zIndex: '100',
                 [theme.breakpoints.down('sm')]: {
                     padding: '2em',
-                    display: 'none',
                 },
             })}>
             <Stack
