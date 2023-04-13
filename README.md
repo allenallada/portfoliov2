@@ -1,4 +1,4 @@
-## Allen Allada's portfolio website website
+## Allen Allada's portfolio website
 
 This repo is home to my first portfolio website. Visit the portfolio site by visiting https://aallada.dev
 
