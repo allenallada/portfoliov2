@@ -83,7 +83,7 @@ export default function AboutMe() {
                         }}
                         color="common.white">
                         <Typography
-                            variant="h2"
+                            variant="h4"
                             color="indigo.dark"
                             fontWeight="800"
                             textAlign="center"

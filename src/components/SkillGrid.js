@@ -14,52 +14,51 @@ import 'react-circular-progressbar/dist/styles.css';
 function SkillGrid({ title, items }) {
     return (
         <>
-            <Box
-                display="flex"
-                justifyContent="center">
+            <Box>
                 <Typography
                     sx={(theme) => ({
                         marginBottom: '1em',
                         textAlign: 'center',
                         fontWeight: '800',
                         [theme.breakpoints.down('md')]: {
-                            fontSize: '2.1rem',
+                            fontSize: '1.1rem',
                         },
                     })}
-                    variant="h2">
+                    variant="h4">
                     {title}
                 </Typography>
             </Box>
             <Grid
                 container
                 rowSpacing={2}
+                columns={6}
                 justifyContent="center"
                 marginBottom="3em">
                 {items.map((item) => (
                     <Grid
                         key={item.text}
-                        xs={6}
-                        sm={4}
-                        md={3}
-                        lg={2}>
+                        xs={2.5}
+                        sm={2}
+                        md={1.5}
+                        lg={1.1}>
                         <Container
                             sx={{
-                                width: '90%',
+                                width: '70%',
                             }}>
                             <CircularProgressbarWithChildren
                                 value={item.value * 10}
                                 strokeWidth={8}
                                 styles={buildStyles({
                                     textSize: '0.4em',
-                                    pathColor: '#10B981',
-                                    textColor: '#10B981',
+                                    pathColor: '#4338CA',
+                                    textColor: '#4338CA',
                                 })}>
                                 <Box
                                     component="img"
                                     sx={(theme) => ({
-                                        height: '2em',
+                                        height: '2.5em',
                                         [theme.breakpoints.down('lg')]: {
-                                            height: '6em',
+                                            height: '4em',
                                         },
                                         [theme.breakpoints.down('md')]: {
                                             height: '4em',
@@ -76,13 +75,13 @@ function SkillGrid({ title, items }) {
                                         fontSize: '0.8em',
                                         fontWeight: '600',
                                         [theme.breakpoints.down('lg')]: {
-                                            fontSize: '1.5em',
+                                            fontSize: '1em',
                                         },
                                         [theme.breakpoints.down('md')]: {
-                                            fontSize: '2em',
+                                            fontSize: '1.5em',
                                         },
                                         [theme.breakpoints.down('sm')]: {
-                                            fontSize: '3em',
+                                            fontSize: '2.5em',
                                         },
                                     })}>
                                     {item.text}
@@ -94,13 +93,13 @@ function SkillGrid({ title, items }) {
                                     fontWeight: '600',
                                     textAlign: 'center',
                                     [theme.breakpoints.down('lg')]: {
-                                        fontSize: '2em',
+                                        fontSize: '1em',
                                     },
                                     [theme.breakpoints.down('md')]: {
-                                        fontSize: '2em',
+                                        fontSize: '1.5em',
                                     },
                                     [theme.breakpoints.down('sm')]: {
-                                        fontSize: '3em',
+                                        fontSize: '2.5em',
                                     },
                                 })}>
                                 {`${item.value}/10`}

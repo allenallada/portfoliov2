@@ -181,111 +181,127 @@ function Projects() {
                     height: '100vh',
                     scrollSnapAlign: 'center',
                 },
+                display: 'flex',
+                justifyContent: 'center',
+                flexDirection: 'column',
             })}>
-            <Box
-                display="flex"
-                justifyContent="center">
+            <Box>
                 <Typography
-                    variant="h2"
-                    color="common.white"
+                    variant="h4"
+                    color="success.main"
                     fontWeight="800"
-                    textAlign="center"
-                    marginBottom="1em">
+                    textAlign="center">
                     Projects
                 </Typography>
+                <Typography
+                    variant="body2"
+                    color="common.white"
+                    textAlign="center">
+                    I have contributed to various projects, but I've listed the
+                    ones where I have a signicant role.
+                </Typography>
             </Box>
-            <Grid
-                container
-                spacing={10}
-                rowSpacing={2}
-                height="80%"
-                columns={25}
-                marginTop="1em"
-                justifyContent="center"
-                alignContent="center">
-                {projects.map((project) => {
-                    return (
-                        <Grid
-                            key={project.name}
-                            xxl={5}
-                            xl={9}
-                            lg={10}
-                            md={9}
-                            sm={17}
-                            xs={20}>
-                            <Box
-                                display="flex"
-                                justifyContent="center">
-                                <Card
-                                    sx={{
-                                        marginX: 'auto',
-                                        cursor: 'pointer',
-                                        width: '100%',
-                                        height: '100%',
-                                    }}
-                                    onClick={(event) =>
-                                        window.open(project.image)
-                                    }>
-                                    <CardMedia
-                                        component="img"
-                                        image={project.image}
-                                        alt={project.name}
+            <Box
+                sx={(theme) => ({
+                    padding: '3em',
+                    [theme.breakpoints.down('md')]: {
+                        padding: '0',
+                    },
+                })}>
+                <Grid
+                    container
+                    spacing={5}
+                    rowSpacing={2}
+                    columns={12}
+                    marginTop="1em"
+                    justifyContent="center"
+                    alignContent="center">
+                    {projects.map((project) => {
+                        return (
+                            <Grid
+                                key={project.name}
+                                xxl={3}
+                                xl={2.5}
+                                lg={2.7}
+                                sm={4.5}
+                                xs={10}>
+                                <Box
+                                    display="flex"
+                                    height="100%"
+                                    width="100%"
+                                    justifyContent="center">
+                                    <Card
+                                        width="100%"
                                         sx={{
-                                            objectFit: 'cover',
-                                            objectPosition: 'top',
-                                            height: {
-                                                xl: '9em',
-                                                lg: '12em',
-                                                md: '15em',
-                                                xs: '8em',
-                                            },
+                                            marginX: 'auto',
+                                            cursor: 'pointer',
                                         }}
-                                    />
-                                    <CardContent
-                                        sx={{
-                                            padding: '1em',
-                                            color: 'indigo.dark',
-                                        }}>
-                                        <Typography variant="h6">
-                                            {project.name}
-                                        </Typography>
-                                        <Typography variant="body2">
-                                            {project.desc}
-                                        </Typography>
-                                    </CardContent>
-                                    <CardActions
-                                        sx={{
-                                            display: 'flex',
-                                            flexWrap: 'wrap',
-                                            justifyContent: 'center',
-                                        }}>
-                                        {project.tags.map((tag) => {
-                                            return (
-                                                <Chip
-                                                    variant={
-                                                        tag.fill
-                                                            ? 'filled'
-                                                            : 'outlined'
-                                                    }
-                                                    key={`${project.name} ${tag.text}`}
-                                                    sx={{
-                                                        fontSize: '0.6em',
-                                                        height: '3em',
-                                                        padding: '0.05em',
-                                                        marginY: '0.5em',
-                                                    }}
-                                                    label={tag.text}
-                                                    color={tag.color}
-                                                />
-                                            );
-                                        })}
-                                    </CardActions>
-                                </Card>
-                            </Box>
-                        </Grid>
-                    );
-                })}
-            </Grid>
+                                        onClick={(event) =>
+                                            window.open(project.image)
+                                        }>
+                                        <CardMedia
+                                            component="img"
+                                            image={project.image}
+                                            alt={project.name}
+                                            sx={{
+                                                objectFit: 'cover',
+                                                objectPosition: 'top',
+                                                height: {
+                                                    xxl: '10vw',
+                                                    xl: '12vw',
+                                                    lg: '18vw',
+                                                    md: '13vw',
+                                                    sm: '15vw',
+                                                    xs: '25vw',
+                                                },
+                                            }}
+                                        />
+                                        <CardContent
+                                            sx={{
+                                                padding: '1em',
+                                                color: 'indigo.dark',
+                                            }}>
+                                            <Typography variant="h6">
+                                                {project.name}
+                                            </Typography>
+                                            <Typography variant="body2">
+                                                {project.desc}
+                                            </Typography>
+                                        </CardContent>
+                                        <CardActions
+                                            sx={{
+                                                display: 'flex',
+                                                flexWrap: 'wrap',
+                                                justifyContent: 'center',
+                                            }}>
+                                            {project.tags.map((tag) => {
+                                                return (
+                                                    <Chip
+                                                        variant={
+                                                            tag.fill
+                                                                ? 'filled'
+                                                                : 'outlined'
+                                                        }
+                                                        key={`${project.name} ${tag.text}`}
+                                                        sx={{
+                                                            fontSize: '0.6em',
+                                                            height: '3em',
+                                                            padding: '0.05em',
+                                                            marginY: '0.5em',
+                                                        }}
+                                                        label={tag.text}
+                                                        color={tag.color}
+                                                    />
+                                                );
+                                            })}
+                                        </CardActions>
+                                    </Card>
+                                </Box>
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+            </Box>
         </Box>
     );
 }

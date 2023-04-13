@@ -42,7 +42,7 @@ function Experience() {
     return (
         <Box
             sx={(theme) => ({
-                padding: '3em',
+                padding: '10em',
                 position: 'relative',
                 width: '100%',
                 display: 'flex',
@@ -53,90 +53,103 @@ function Experience() {
                     height: '100vh',
                     scrollSnapAlign: 'center',
                 },
-            })}>
-            <Box component="div">
-                <Box
-                    display="flex"
-                    justifyContent="center">
-                    <Typography
-                        variant="h2"
-                        color="success.main"
-                        fontWeight="800"
-                        textAlign="center">
-                        Work Experience
-                    </Typography>
-                </Box>
-                <Box
-                    sx={(theme) => ({
-                        margin: '3em',
-                        marginBottom: '0',
-                        paddingX: '5em',
-                        [theme.breakpoints.down('md')]: {
-                            paddingX: '0',
-                            margin: '0',
-                        },
 
-                        [theme.breakpoints.up('xxl')]: {
+                [theme.breakpoints.down('md')]: {
+                    padding: '10vw 0',
+                },
+                [theme.breakpoints.down('sm')]: {
+                    padding: '15vw',
+                },
+            })}>
+            <Box
+                component="div"
+                sx={(theme) => ({
+                    padding: '3em',
+                    [theme.breakpoints.down('md')]: {
+                        padding: '0',
+                    },
+                })}>
+                <Box>
+                    <Box
+                        display="flex"
+                        justifyContent="center">
+                        <Typography
+                            variant="h4"
+                            color="indigo.dark"
+                            fontWeight="800"
+                            textAlign="center">
+                            Work Experience
+                        </Typography>
+                    </Box>
+                    <Box
+                        sx={(theme) => ({
+                            margin: '4em 2em',
                             display: 'flex',
                             justifyContent: 'center',
-                        },
-                    })}>
-                    {experience.map((item, index) => {
-                        return (
-                            <Box
-                                key={`${item.position} ${item.company}`}
-                                width="30em"
-                                sx={(theme) => ({
-                                    marginY: '1em',
-                                    marginLeft: `${
-                                        index * (100 / experience.length)
-                                    }%`,
-                                    [theme.breakpoints.down('md')]: {
-                                        marginX: '3em',
-                                        width: 'auto',
-                                    },
-                                    [theme.breakpoints.up('xxl')]: {
-                                        marginX: '2em',
-                                        width: 'auto',
-                                    },
-                                })}>
-                                <Typography
-                                    color="success.main"
-                                    variant="caption">
-                                    {item.date}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="subtitle2">
-                                    {item.company}
-                                </Typography>
-                                <Typography
-                                    color="success.main"
-                                    variant="h5">
-                                    {item.position}
-                                </Typography>
-                                {item.roles.map((role) => (
-                                    <Typography
-                                        key={`${item.position} ${role}`}
-                                        paddingLeft="1em"
-                                        letterSpacing="0.07em"
-                                        color="success.dark"
-                                        variant="body2">
-                                        &#x2022; {role}
-                                    </Typography>
-                                ))}
-                                <br />
-                                {index !== experience.length - 1 && (
-                                    <Divider
-                                        sx={{
-                                            borderColor: 'success.light',
-                                            display: { xxl: 'none' },
-                                        }}
-                                    />
-                                )}
-                            </Box>
-                        );
-                    })}
+                            backgroundColor: 'indigo.lightest',
+                            [theme.breakpoints.down('sm')]: {
+                                flexDirection: 'column',
+                                margin: '2em 0 ',
+                            },
+                        })}>
+                        {experience.map((item, index) => {
+                            return (
+                                <Box
+                                    container
+                                    sx={(theme) => ({
+                                        width: '100%',
+                                        display: 'flex',
+                                        borderColor: 'neutral.700',
+                                        marginX: 'auto',
+                                        [theme.breakpoints.down('sm')]: {
+                                            borderTop:
+                                                index > 0 &&
+                                                index < experience.length
+                                                    ? `2px solid ${theme.palette.indigo.dark}`
+                                                    : 'none',
+                                            flexDirection: 'column',
+                                        },
+                                        [theme.breakpoints.up('sm')]: {
+                                            borderLeft:
+                                                index > 0 &&
+                                                index < experience.length
+                                                    ? `2px solid ${theme.palette.indigo.main}`
+                                                    : 'none',
+                                        },
+                                    })}>
+                                    <Box
+                                        marginX="auto"
+                                        color="indigo.dark"
+                                        padding="1.5em"
+                                        key={`${item.position} ${item.company}`}>
+                                        <Typography variant="caption">
+                                            {item.date}
+                                        </Typography>
+                                        <Typography variant="subtitle2">
+                                            {item.company}
+                                        </Typography>
+                                        <Typography
+                                            variant="h6"
+                                            paddingY="0.5em">
+                                            {item.position}
+                                        </Typography>
+                                        <Divider />
+                                        <br />
+                                        {item.roles.map((role) => (
+                                            <Typography
+                                                key={`${item.position} ${role}`}
+                                                paddingLeft="1em"
+                                                fontSize="0.75em"
+                                                letterSpacing="0.07em"
+                                                variant="body2">
+                                                &#x2022; {role}
+                                            </Typography>
+                                        ))}
+                                    </Box>
+                                </Box>
+                            );
+                        })}
+                    </Box>
                 </Box>
             </Box>
         </Box>
