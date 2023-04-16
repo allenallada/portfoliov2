@@ -58,6 +58,7 @@ export default function BottomSection() {
                             },
                         })}>
                         <Box
+                            key="left-column"
                             sx={(theme) => ({
                                 width: '30em',
                                 [theme.breakpoints.down('md')]: {
@@ -109,6 +110,7 @@ export default function BottomSection() {
                             </Link>
                         </Box>
                         <Box
+                            key="right-column"
                             sx={(theme) => ({
                                 width: '30em',
                                 [theme.breakpoints.down('md')]: {
@@ -130,6 +132,7 @@ export default function BottomSection() {
                                 Others
                             </Typography>
                             <Link
+                                key="projects"
                                 variant="h6"
                                 letterSpacing="0.1em"
                                 marginBottom="1em"
@@ -142,6 +145,7 @@ export default function BottomSection() {
                                 Personal Projects
                             </Link>
                             <Link
+                                key="resume"
                                 variant="h6"
                                 letterSpacing="0.1em"
                                 marginBottom="1em"
@@ -154,6 +158,7 @@ export default function BottomSection() {
                                 My Resume
                             </Link>
                             <Link
+                                key="plugs"
                                 variant="h6"
                                 letterSpacing="0.1em"
                                 marginBottom="1em"
@@ -183,8 +188,10 @@ export default function BottomSection() {
                             marginRight="auto">
                             &#169; Allen Allada 2023
                         </Typography>
-                        {socials.map((link) => (
-                            <Box marginX="0.5em">
+                        {socials.map((link, index) => (
+                            <Box
+                                key={`socials-${index}`}
+                                marginX="0.5em">
                                 <SocialIcon
                                     bgColor="white"
                                     style={{ height: '2em', width: '2em' }}

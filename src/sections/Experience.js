@@ -95,7 +95,7 @@ function Experience() {
                         {experience.map((item, index) => {
                             return (
                                 <Box
-                                    container
+                                    key={`experience-${index}`}
                                     sx={(theme) => ({
                                         width: '100%',
                                         display: 'flex',

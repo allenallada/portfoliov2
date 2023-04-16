@@ -29,6 +29,24 @@ const socials = [
     'https://www.facebook.com/allen.allada/',
 ];
 
+const otherLinks = [
+    {
+        to: '/projects',
+        icon: <WalletIcon />,
+        text: 'Personal Projects',
+    },
+    {
+        to: '/resume',
+        icon: <ContactPageIcon />,
+        text: 'My Resume',
+    },
+    {
+        to: '/plugs',
+        icon: <PowerIcon />,
+        text: 'Plugs',
+    },
+];
+
 function TopNav() {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
@@ -108,60 +126,29 @@ function TopNav() {
                     }}
                     role="presentation">
                     <List>
-                        <Link to="/resume">
-                            <ListItem disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon
-                                        sx={{
-                                            color: 'inherit',
-                                        }}>
-                                        <WalletIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        variant="body1"
-                                        color="inherit"
-                                        underline="none">
-                                        Personal Projects
-                                    </ListItemText>
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-                        <Link to="/resume">
-                            <ListItem disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon
-                                        sx={{
-                                            color: 'inherit',
-                                        }}>
-                                        <ContactPageIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        variant="body1"
-                                        color="inherit"
-                                        underline="none">
-                                        My Resume
-                                    </ListItemText>
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
-                        <Link to="/plugs">
-                            <ListItem disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon
-                                        sx={{
-                                            color: 'inherit',
-                                        }}>
-                                        <PowerIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        variant="body1"
-                                        color="inherit"
-                                        underline="none">
-                                        Plugs
-                                    </ListItemText>
-                                </ListItemButton>
-                            </ListItem>
-                        </Link>
+                        {otherLinks.map((link) => (
+                            <Link
+                                key={link.text}
+                                to="/resume">
+                                <ListItem disablePadding>
+                                    <ListItemButton>
+                                        <ListItemIcon
+                                            sx={{
+                                                color: 'inherit',
+                                            }}>
+                                            {/* <WalletIcon /> */}
+                                            {link.icon}
+                                        </ListItemIcon>
+                                        <ListItemText
+                                            variant="body1"
+                                            color="inherit"
+                                            underline="none">
+                                            {link.text}
+                                        </ListItemText>
+                                    </ListItemButton>
+                                </ListItem>
+                            </Link>
+                        ))}
                     </List>
                     <Divider
                         sx={{
@@ -169,7 +156,9 @@ function TopNav() {
                         }}
                     />
                     <List>
-                        <ListItem disablePadding>
+                        <ListItem
+                            key="mailto"
+                            disablePadding>
                             <ListItemButton
                                 onClick={() =>
                                     (window.location =
@@ -193,7 +182,9 @@ function TopNav() {
                                 </ListItemText>
                             </ListItemButton>
                         </ListItem>
-                        <ListItem disablePadding>
+                        <ListItem
+                            key="discord"
+                            disablePadding>
                             <ListItemButton
                                 onClick={() =>
                                     window.open(
@@ -230,8 +221,10 @@ function TopNav() {
                         justifyContent="center"
                         paddingY="16px"
                         paddingX="32px">
-                        {socials.map((link) => (
-                            <Box marginX="1.5em">
+                        {socials.map((link, index) => (
+                            <Box
+                                key={`link-${index}`}
+                                marginX="1.5em">
                                 <SocialIcon
                                     bgColor="#4338CA"
                                     style={{ height: '2em', width: '2em' }}
