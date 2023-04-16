@@ -173,7 +173,7 @@ function Projects() {
         <Box
             sx={(theme) => ({
                 padding: '3em',
-                backgroundColor: 'indigo.dark',
+                backgroundColor: 'indigo.darkest',
                 position: 'relative',
                 width: '100%',
                 height: 'auto',

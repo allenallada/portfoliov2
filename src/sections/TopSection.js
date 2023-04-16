@@ -1,7 +1,11 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, useMediaQuery } from '@mui/material';
 import * as React from 'react';
+import AvatarShapes from '../components/AvatarShapes';
+import { useTheme } from '@mui/material/styles';
 
 function TopSection() {
+    const myTheme = useTheme();
+    const isMatch = useMediaQuery(myTheme.breakpoints.down('md'));
     return (
         <Box
             sx={(theme) => ({
@@ -136,22 +140,54 @@ function TopSection() {
                             [theme.breakpoints.down('md')]: {
                                 backgroundColor: 'success.main',
                                 width: '100%',
+                                height: '30em',
                             },
                         })}>
                         <Box
-                            width="50%"
-                            marginX="auto"
-                            component="img"
                             sx={(theme) => ({
-                                width: '20em',
-                                height: '20em',
                                 [theme.breakpoints.down('md')]: {
-                                    marginY: '5em',
+                                    position: 'relative',
                                 },
-                            })}
-                            alt="hey handsome"
-                            src="\img\avatar-main.jpg"
-                        />
+                            })}>
+                            <Box
+                                zIndex="10"
+                                marginX="auto"
+                                component="img"
+                                sx={(theme) => ({
+                                    position: 'relative',
+                                    width: '20em',
+                                    height: '20em',
+                                    boxShadow: `10px 10px ${theme.palette.neutral[400]}`,
+                                    [theme.breakpoints.down('md')]: {
+                                        marginY: '5em',
+                                        width: '224px',
+                                        height: '224px',
+                                    },
+                                })}
+                                alt="hey handsome"
+                                src="\img\avatar-main.jpg"
+                            />
+                            <AvatarShapes
+                                className={isMatch ? 'avatar-shape' : ''}
+                                htmlColor="red"
+                                sx={(theme) => ({
+                                    fontSize: '1em',
+                                    position: 'absolute',
+                                    width: '35em',
+                                    height: '35em',
+                                    top: '2em',
+                                    right: '8em',
+                                    backgroundImage:
+                                        'url("imgavatar-main.jpg")',
+                                    [theme.breakpoints.down('md')]: {
+                                        top: '-1em',
+                                        right: '-7em',
+                                        width: '35em',
+                                        height: '35em',
+                                    },
+                                })}
+                            />
+                        </Box>
                     </Box>
                 </Box>
             </Box>
