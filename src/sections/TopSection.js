@@ -177,8 +177,6 @@ function TopSection() {
                                     height: '35em',
                                     top: '2em',
                                     right: '8em',
-                                    backgroundImage:
-                                        'url("imgavatar-main.jpg")',
                                     [theme.breakpoints.down('md')]: {
                                         top: '-1em',
                                         right: '-7em',
