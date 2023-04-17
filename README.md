@@ -1,6 +1,6 @@
 ## Allen Allada's portfolio website
 
-This repo is home to my first portfolio website. Visit the portfolio site by visiting https://aallada.dev
+This repo is home to my first portfolio website created using React, Mui and Express.js. Visit the portfolio site by visiting https://aallada.dev
 
 ## Project setup
 
