@@ -21,6 +21,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import ChatIcon from '@mui/icons-material/Chat';
 import { SocialIcon } from 'react-social-icons';
 import { Link } from 'react-router-dom';
+import Logo from '../components/Logo';
 
 const socials = [
     'https://www.linkedin.com/in/allen-allada-ab5131166/',
@@ -81,7 +82,7 @@ function TopNav() {
                 direction="row"
                 spacing={2}
                 justifyContent="space-between">
-                <Box
+                {/* <Box
                     component="img"
                     sx={(theme) => ({
                         width: '5em',
@@ -92,7 +93,24 @@ function TopNav() {
                         },
                     })}
                     alt="My Logo"
-                    src="\img\green-no-bg.png"></Box>
+                    src="\img\green-no-bg.png"></Box> */}
+                <Box
+                    sx={(theme) => ({
+                        width: '5em',
+                        height: '5em',
+                        [theme.breakpoints.down('md')]: {
+                            width: '3em',
+                            height: '3em',
+                        },
+                    })}>
+                    <Logo
+                        sx={{
+                            width: '100%',
+                            height: '100%',
+                            fill: 'white',
+                        }}
+                    />
+                </Box>
                 <Box>
                     <IconButton onClick={() => setOpen(!open)}>
                         <MenuIcon

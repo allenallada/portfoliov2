@@ -151,7 +151,7 @@ export default function BottomSection() {
                                 marginBottom="1em"
                                 color="common.white"
                                 underline="hover"
-                                onClick={() => navigate('/resume')}
+                                onClick={() => navigate('/re sume')}
                                 sx={{
                                     cursor: 'pointer',
                                 }}>
