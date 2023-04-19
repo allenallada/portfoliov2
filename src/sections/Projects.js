@@ -7,8 +7,10 @@ import {
     CardActions,
     Chip,
     Unstable_Grid2 as Grid,
+    Slide,
 } from '@mui/material';
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const projects = [
     {
@@ -168,10 +170,22 @@ const projects = [
     },
 ];
 
-function Projects() {
+function Projects({ animate }) {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 1,
+    });
+
+    const [visible, setVisibility] = useState(false);
+
+    useEffect(() => {
+        setVisibility(animate === false ? true : inView);
+    }, [inView, animate]);
+
     return (
         <Box
             sx={(theme) => ({
+                overflow: 'hidden',
                 padding: '3em',
                 backgroundColor: 'indigo.darkest',
                 position: 'relative',
@@ -185,122 +199,152 @@ function Projects() {
                 justifyContent: 'center',
                 flexDirection: 'column',
             })}>
-            <Box>
-                <Typography
-                    variant="h4"
-                    color="success.main"
-                    fontWeight="800"
-                    textAlign="center">
-                    Projects
-                </Typography>
-                <Typography
-                    variant="body2"
-                    color="common.white"
-                    textAlign="center">
-                    I have contributed to various projects, but I've listed the
-                    ones where I have a signicant role.
-                </Typography>
-            </Box>
-            <Box
-                sx={(theme) => ({
-                    padding: '3em',
-                    [theme.breakpoints.down('md')]: {
-                        padding: '0',
-                    },
-                })}>
-                <Grid
-                    container
-                    spacing={5}
-                    rowSpacing={2}
-                    columns={12}
-                    marginTop="1em"
-                    justifyContent="center"
-                    alignContent="center">
-                    {projects.map((project) => {
-                        return (
-                            <Grid
-                                key={project.name}
-                                xxl={3}
-                                xl={2.5}
-                                lg={2.7}
-                                sm={4.5}
-                                xs={10}>
-                                <Box
-                                    display="flex"
-                                    height="100%"
-                                    width="100%"
-                                    justifyContent="center">
-                                    <Card
-                                        width="100%"
-                                        sx={{
-                                            marginX: 'auto',
-                                            cursor: 'pointer',
-                                        }}
-                                        onClick={(event) =>
-                                            window.open(project.image)
-                                        }>
-                                        <CardMedia
-                                            component="img"
-                                            image={project.image}
-                                            alt={project.name}
-                                            sx={{
-                                                objectFit: 'cover',
-                                                objectPosition: 'top',
-                                                height: {
-                                                    xxl: '10vw',
-                                                    xl: '12vw',
-                                                    lg: '18vw',
-                                                    md: '13vw',
-                                                    sm: '15vw',
-                                                    xs: '25vw',
-                                                },
-                                            }}
-                                        />
-                                        <CardContent
-                                            sx={{
-                                                padding: '1em',
-                                                color: 'indigo.dark',
-                                            }}>
-                                            <Typography variant="h6">
-                                                {project.name}
-                                            </Typography>
-                                            <Typography variant="body2">
-                                                {project.desc}
-                                            </Typography>
-                                        </CardContent>
-                                        <CardActions
-                                            sx={{
-                                                display: 'flex',
-                                                flexWrap: 'wrap',
-                                                justifyContent: 'center',
-                                            }}>
-                                            {project.tags.map((tag) => {
-                                                return (
-                                                    <Chip
-                                                        variant={
-                                                            tag.fill
-                                                                ? 'filled'
-                                                                : 'outlined'
-                                                        }
-                                                        key={`${project.name} ${tag.text}`}
-                                                        sx={{
-                                                            fontSize: '0.6em',
-                                                            height: '3em',
-                                                            padding: '0.05em',
-                                                            marginY: '0.5em',
-                                                        }}
-                                                        label={tag.text}
-                                                        color={tag.color}
-                                                    />
-                                                );
-                                            })}
-                                        </CardActions>
-                                    </Card>
-                                </Box>
-                            </Grid>
-                        );
-                    })}
-                </Grid>
+            <Box ref={ref}>
+                <Slide
+                    direction="down"
+                    in={visible}
+                    timeout={{
+                        enter: 300,
+                        exit: 100,
+                    }}>
+                    <Box>
+                        <Typography
+                            variant="h4"
+                            color="success.main"
+                            fontWeight="800"
+                            textAlign="center">
+                            Projects
+                        </Typography>
+                        <Typography
+                            variant="body2"
+                            color="common.white"
+                            textAlign="center">
+                            I have contributed to various projects, but I've
+                            listed the ones where I have a signicant role.
+                        </Typography>
+                    </Box>
+                </Slide>
+
+                <Box
+                    sx={(theme) => ({
+                        padding: '3em',
+                        [theme.breakpoints.down('md')]: {
+                            padding: '0',
+                        },
+                    })}>
+                    <Grid
+                        container
+                        spacing={5}
+                        rowSpacing={2}
+                        columns={12}
+                        marginTop="1em"
+                        justifyContent="center"
+                        alignContent="center">
+                        {projects.map((project, index) => {
+                            return (
+                                <Slide
+                                    direction="left"
+                                    in={visible}
+                                    timeout={{
+                                        enter: 200,
+                                        exit: 100,
+                                    }}
+                                    style={{
+                                        transitionDelay: `${
+                                            300 + index * 200
+                                        }ms`,
+                                    }}>
+                                    <Grid
+                                        key={project.name}
+                                        xxl={3}
+                                        xl={2.5}
+                                        lg={2.7}
+                                        sm={4.5}
+                                        xs={10}>
+                                        <Box
+                                            display="flex"
+                                            height="100%"
+                                            width="100%"
+                                            justifyContent="center">
+                                            <Card
+                                                width="100%"
+                                                sx={{
+                                                    marginX: 'auto',
+                                                    cursor: 'pointer',
+                                                }}
+                                                onClick={(event) =>
+                                                    window.open(project.image)
+                                                }>
+                                                <CardMedia
+                                                    component="img"
+                                                    image={project.image}
+                                                    alt={project.name}
+                                                    sx={{
+                                                        objectFit: 'cover',
+                                                        objectPosition: 'top',
+                                                        height: {
+                                                            xxl: '10vw',
+                                                            xl: '12vw',
+                                                            lg: '18vw',
+                                                            md: '13vw',
+                                                            sm: '15vw',
+                                                            xs: '25vw',
+                                                        },
+                                                    }}
+                                                />
+                                                <CardContent
+                                                    sx={{
+                                                        padding: '1em',
+                                                        color: 'indigo.dark',
+                                                    }}>
+                                                    <Typography variant="h6">
+                                                        {project.name}
+                                                    </Typography>
+                                                    <Typography variant="body2">
+                                                        {project.desc}
+                                                    </Typography>
+                                                </CardContent>
+                                                <CardActions
+                                                    sx={{
+                                                        display: 'flex',
+                                                        flexWrap: 'wrap',
+                                                        justifyContent:
+                                                            'center',
+                                                    }}>
+                                                    {project.tags.map((tag) => {
+                                                        return (
+                                                            <Chip
+                                                                variant={
+                                                                    tag.fill
+                                                                        ? 'filled'
+                                                                        : 'outlined'
+                                                                }
+                                                                key={`${project.name} ${tag.text}`}
+                                                                sx={{
+                                                                    fontSize:
+                                                                        '0.6em',
+                                                                    height: '3em',
+                                                                    padding:
+                                                                        '0.05em',
+                                                                    marginY:
+                                                                        '0.5em',
+                                                                }}
+                                                                label={tag.text}
+                                                                color={
+                                                                    tag.color
+                                                                }
+                                                            />
+                                                        );
+                                                    })}
+                                                </CardActions>
+                                            </Card>
+                                        </Box>
+                                    </Grid>
+                                </Slide>
+                            );
+                        })}
+                    </Grid>
+                </Box>
             </Box>
         </Box>
     );

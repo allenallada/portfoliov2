@@ -1,5 +1,6 @@
-import * as React from 'react';
-import { Box, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Typography, Slide } from '@mui/material';
+import { useInView } from 'react-intersection-observer';
 
 const paragraphs = [
     "I'm Allen Allada, a full stack web developer based in the Philippines, and I am delighted to welcome you to my portfolio.",
@@ -9,12 +10,24 @@ const paragraphs = [
     'In my free time, I enjoy playing games with my buddies, the N in my logo stands for Nutree,  my in-game name.',
 ];
 
-export default function AboutMe() {
+export default function AboutMe({ animate }) {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 1,
+    });
+
+    const [visible, setVisibility] = useState(false);
+
+    useEffect(() => {
+        setVisibility(animate === false ? true : inView);
+    }, [inView, animate]);
+
     return (
         <Box
             sx={(theme) => ({
                 padding: '3em',
                 position: 'relative',
+                overflow: 'hidden',
                 width: '100%',
                 [theme.breakpoints.up('lg')]: {
                     height: '100vh',
@@ -23,6 +36,7 @@ export default function AboutMe() {
                 backgroundColor: 'success.main',
             })}>
             <Box
+                ref={ref}
                 component="div"
                 display="flex"
                 justifyContent="center">
@@ -49,21 +63,29 @@ export default function AboutMe() {
                                 flexDirection: 'row',
                             },
                         })}>
-                        <Box
-                            component="img"
-                            sx={(theme) => ({
-                                width: '25em',
-                                height: '25em',
-                                margin: 'auto',
-                                [theme.breakpoints.down('md')]: {
-                                    marginY: '2em',
-                                    width: '23em',
-                                    height: '23em',
-                                },
-                            })}
-                            alt="hey handsome"
-                            src="\img\about-me.jpg"
-                        />
+                        <Slide
+                            direction="up"
+                            in={visible}
+                            timeout={{
+                                enter: 300,
+                                exit: 100,
+                            }}>
+                            <Box
+                                component="img"
+                                sx={(theme) => ({
+                                    width: '25em',
+                                    height: '25em',
+                                    margin: 'auto',
+                                    [theme.breakpoints.down('md')]: {
+                                        marginY: '2em',
+                                        width: '23em',
+                                        height: '23em',
+                                    },
+                                })}
+                                alt="hey handsome"
+                                src="\img\about-me.jpg"
+                            />
+                        </Slide>
                     </Box>
                     <Box
                         sx={{
@@ -82,24 +104,42 @@ export default function AboutMe() {
                             justifyContent: 'center',
                         }}
                         color="common.white">
-                        <Typography
-                            variant="h4"
-                            color="indigo.dark"
-                            fontWeight="800"
-                            textAlign="center"
-                            marginBottom="1em">
-                            Hey there.
-                        </Typography>
-                        {paragraphs.map((paragraph, index) => (
+                        <Slide
+                            timeout={{
+                                enter: 300,
+                                exit: 0,
+                            }}
+                            direction="down"
+                            in={visible}>
                             <Typography
-                                key={`about-me-${index}`}
-                                marginBottom="1em"
-                                variant="body1"
-                                fontWeight="600"
-                                letterSpacing="-0.03em">
-                                {paragraph}
+                                variant="h4"
+                                color="indigo.dark"
+                                fontWeight="800"
+                                textAlign="center"
+                                marginBottom="1em">
+                                Hey there.
                             </Typography>
-                        ))}
+                        </Slide>
+                        <Box overflow="hidden">
+                            {paragraphs.map((paragraph, index) => (
+                                <Slide
+                                    direction="up"
+                                    in={visible}
+                                    timeout={{
+                                        enter: index * 100 + 300,
+                                        exit: 100,
+                                    }}>
+                                    <Typography
+                                        key={`about-me-${index}`}
+                                        marginBottom="1em"
+                                        variant="body1"
+                                        fontWeight="600"
+                                        letterSpacing="-0.03em">
+                                        {paragraph}
+                                    </Typography>
+                                </Slide>
+                            ))}
+                        </Box>
                     </Box>
                 </Box>
             </Box>
