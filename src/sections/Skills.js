@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 import SkillGrid from '../components/SkillGrid';
+import { useInView } from 'react-intersection-observer';
 
 const skills = [
     {
@@ -59,7 +60,18 @@ const others = [
     },
 ];
 
-function Skills() {
+function Skills({ animate }) {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 1,
+    });
+
+    const [visible, setVisibility] = useState(false);
+
+    useEffect(() => {
+        setVisibility(animate === false ? true : inView);
+    }, [inView, animate]);
+
     return (
         <Box
             color="success.main"
@@ -72,6 +84,7 @@ function Skills() {
                 },
             })}>
             <Box
+                ref={ref}
                 component="div"
                 height="100%"
                 sx={(theme) => ({
@@ -88,10 +101,12 @@ function Skills() {
                     },
                 })}>
                 <SkillGrid
+                    visible={visible}
                     title="Core Technologies"
                     items={skills}
                 />
                 <SkillGrid
+                    visible={visible}
                     title="Others"
                     items={others}
                 />

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
+import { Box, useMediaQuery } from '@mui/material';
 import TopSection from '../sections/TopSection';
 import Experience from '../sections/Experience';
 import TopNav from '../sections/TopNav';
@@ -7,8 +7,12 @@ import Projects from '../sections/Projects';
 import Skills from '../sections/Skills';
 import AboutMe from '../sections/AboutMe';
 import BottomSection from '../sections/BottomSection';
+import { useTheme } from '@mui/material/styles';
 
 function Home() {
+    const myTheme = useTheme();
+    const animate = useMediaQuery(myTheme.breakpoints.up('lg'));
+    console.log(animate);
     return (
         <Box
             component="div"
@@ -31,12 +35,12 @@ function Home() {
                 },
             })}>
             <TopNav />
-            <TopSection />
-            <Experience />
-            <Projects />
-            <Skills />
-            <AboutMe />
-            <BottomSection />
+            <TopSection animate={animate} />
+            <Experience animate={animate} />
+            <Projects animate={animate} />
+            <Skills animate={animate} />
+            <AboutMe animate={animate} />
+            <BottomSection animate={animate} />
         </Box>
     );
 }

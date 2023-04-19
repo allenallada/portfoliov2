@@ -1,7 +1,8 @@
-import { Box, Typography, Divider } from '@mui/material';
-import * as React from 'react';
+import { Box, Typography, Divider, Slide } from '@mui/material';
 import RightPattern from '../components/RightPattern';
 import LeftPattern from '../components/LeftPattern';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 const experience = [
     {
@@ -40,10 +41,22 @@ const experience = [
     },
 ];
 
-function Experience() {
+function Experience({ animate }) {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 1,
+    });
+
+    const [visible, setVisibility] = useState();
+
+    useEffect(() => {
+        setVisibility(animate === false ? true : inView);
+    }, [inView, animate]);
+
     return (
         <Box
             sx={(theme) => ({
+                overflow: 'hidden',
                 padding: '10em',
                 position: 'relative',
                 width: '100%',
@@ -63,6 +76,7 @@ function Experience() {
                 },
             })}>
             <Box
+                ref={ref}
                 position="relative"
                 component="div"
                 sx={(theme) => ({
@@ -75,86 +89,121 @@ function Experience() {
                     <Box
                         display="flex"
                         justifyContent="center">
-                        <Typography
-                            variant="h4"
-                            color="indigo.dark"
-                            fontWeight="800"
-                            textAlign="center">
-                            Work Experience
-                        </Typography>
+                        <Slide
+                            timeout={{
+                                enter: 200,
+                                exit: 0,
+                            }}
+                            in={visible}>
+                            <Typography
+                                variant="h4"
+                                color="indigo.dark"
+                                fontWeight="800"
+                                textAlign="center">
+                                Work Experience
+                            </Typography>
+                        </Slide>
                     </Box>
-                    <Box
-                        sx={(theme) => ({
-                            margin: '4em 2em',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            backgroundColor: 'indigo.lightest',
-                            [theme.breakpoints.down('sm')]: {
-                                flexDirection: 'column',
-                                margin: '2em 0 ',
-                            },
-                        })}>
-                        {experience.map((item, index) => {
-                            return (
-                                <Box
-                                    key={`experience-${index}`}
-                                    sx={(theme) => ({
-                                        width: '100%',
-                                        display: 'flex',
-                                        borderColor: 'neutral.700',
-                                        marginX: 'auto',
-                                        [theme.breakpoints.down('sm')]: {
-                                            borderTop:
-                                                index > 0 &&
-                                                index < experience.length
-                                                    ? `2px solid ${theme.palette.indigo.dark}`
-                                                    : 'none',
-                                            flexDirection: 'column',
-                                        },
-                                        [theme.breakpoints.up('sm')]: {
-                                            borderLeft:
-                                                index > 0 &&
-                                                index < experience.length
-                                                    ? `2px solid ${theme.palette.indigo.main}`
-                                                    : 'none',
-                                        },
-                                    })}>
-                                    <Box
-                                        marginX="auto"
-                                        color="indigo.dark"
-                                        padding="4em 1.5em"
-                                        key={`${item.position} ${item.company}`}>
-                                        <Typography variant="caption">
-                                            {item.date}
-                                        </Typography>
-                                        <Typography variant="subtitle2">
-                                            {item.company}
-                                        </Typography>
-                                        <Typography
-                                            variant="h6"
-                                            paddingY="0.5em">
-                                            {item.position}
-                                        </Typography>
 
-                                        <Divider
-                                            sx={{ borderColor: 'indigo.dark' }}
-                                        />
-                                        <br />
-                                        {item.roles.map((role) => (
-                                            <Typography
-                                                key={`${item.position} ${role}`}
-                                                paddingLeft="1em"
-                                                fontSize="0.75em"
-                                                letterSpacing="0.07em"
-                                                variant="body2">
-                                                &#x2022; {role}
-                                            </Typography>
-                                        ))}
-                                    </Box>
-                                </Box>
-                            );
-                        })}
-                    </Box>
+                    <Slide
+                        in={visible}
+                        timeout={{
+                            enter: 200,
+                            exit: 100,
+                        }}>
+                        <Box
+                            sx={(theme) => ({
+                                margin: '4em 2em',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                [theme.breakpoints.down('sm')]: {
+                                    flexDirection: 'column',
+                                    margin: '2em 0 ',
+                                },
+                            })}>
+                            {experience.map((item, index) => {
+                                return (
+                                    <Slide
+                                        in={visible}
+                                        timeout={{
+                                            enter: 200,
+                                            exit: 0,
+                                        }}
+                                        style={{
+                                            transitionDelay: `${
+                                                index * 200 + 200
+                                            }ms`,
+                                        }}
+                                        direction="up">
+                                        <Box
+                                            key={`experience-${index}`}
+                                            sx={(theme) => ({
+                                                backgroundColor:
+                                                    'indigo.lightest',
+                                                width: '100%',
+                                                display: 'flex',
+                                                borderColor: 'neutral.700',
+                                                marginX: 'auto',
+                                                [theme.breakpoints.down('sm')]:
+                                                    {
+                                                        borderTop:
+                                                            index > 0 &&
+                                                            index <
+                                                                experience.length
+                                                                ? `2px solid ${theme.palette.indigo.dark}`
+                                                                : 'none',
+                                                        flexDirection: 'column',
+                                                    },
+                                                [theme.breakpoints.up('sm')]: {
+                                                    borderLeft:
+                                                        index > 0 &&
+                                                        index <
+                                                            experience.length
+                                                            ? `2px solid ${theme.palette.indigo.main}`
+                                                            : 'none',
+                                                },
+                                            })}>
+                                            <Box
+                                                marginX="auto"
+                                                color="indigo.dark"
+                                                padding="4em 1.5em"
+                                                key={`${item.position} ${item.company}`}>
+                                                <Typography variant="caption">
+                                                    {item.date}
+                                                </Typography>
+                                                <Typography variant="subtitle2">
+                                                    {item.company}
+                                                </Typography>
+                                                <Typography
+                                                    variant="h6"
+                                                    paddingY="0.5em">
+                                                    {item.position}
+                                                </Typography>
+
+                                                <Divider
+                                                    sx={{
+                                                        borderColor:
+                                                            'indigo.dark',
+                                                    }}
+                                                />
+                                                <br />
+                                                {item.roles.map((role) => (
+                                                    <Typography
+                                                        key={`${item.position} ${role}`}
+                                                        paddingLeft="1em"
+                                                        fontSize="0.75em"
+                                                        letterSpacing="0.07em"
+                                                        variant="body2">
+                                                        &#x2022; {role}
+                                                    </Typography>
+                                                ))}
+                                            </Box>
+                                        </Box>
+                                    </Slide>
+                                );
+                            })}
+                        </Box>
+                    </Slide>
                 </Box>
                 <RightPattern
                     sx={(theme) => ({
